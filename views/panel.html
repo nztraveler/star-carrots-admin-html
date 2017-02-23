@@ -1,0 +1,39 @@
+
+<header class="bg-primary ">萝卜多后台管理系统</header>
+<!--左侧导航栏开始-->
+<div class="nav col-sm-2 col-xs-12">
+<nav class="panel-group list-group " id="accordion" role="tablist" aria-multiselectable="true">
+    <!--第一段折叠-->
+    <div class=" panel panel-default ">
+        <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title collapsed cursor-pointer" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
+                aria-expanded="true" aria-controls="collapseOne">
+                 信息管理
+            </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+            <div class=" list-group">
+                <a href="" class="list-group-item " ui-sref=".Page1">公司信息</a>
+                <a href="" class="list-group-item" ui-sref=".Page2">职位信息</a>
+            </div>
+        </div>
+    </div>
+    <!--第二段折叠-->
+    <div class=" panel panel-default ">
+        <div class="  panel-heading" role="tab" id="headingTwo">
+            <h4 class="panel-title collapsed cursor-pointer " role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"
+                aria-expanded="false" aria-controls="collapseTwo">
+                   内容管理
+            </h4>
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+            <div class=" list-group">
+                    <a href="" class="list-group-item"  ui-sref=".articleList">Article管理</a>
+            </div>
+        </div>
+    </div>
+</nav>
+</div>
+
+
+<div ui-view class="col-sm-10 col-xs-12"> </div>
