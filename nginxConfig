@@ -1,0 +1,33 @@
+        #萝卜多复盘前台
+        server {
+                listen       1021;
+            #   server_name  local.jnshu.ptteng.com;
+                server_name  localhost;
+                location / {
+                    root   G:\\coding\\git\\nztraveler\\star-carrots-html.git\\trunk;
+                    index  index.html index.htm;
+                }
+                location  /carrots-ajax/{
+                    proxy_pass    http://dev.carrots.ptteng.com/;
+                  #  proxy_set_header        Host            $host;
+                  # proxy_set_header        X-Real-IP       $remote_addr;
+                  #  proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+                }
+            }
+
+         #萝卜多复盘后台
+                server {
+                        listen       1022;
+                    #   server_name  local.jnshu.ptteng.com;
+                        server_name  localhost;
+                        location / {
+                            root   G:\\coding\\git\\nztraveler\\star-carrots-admin-html.git\\trunk;
+                            index  index.html index.htm;
+                        }
+                        location  /carrots-admin-ajax/{
+                            proxy_pass     http://dev.admin.carrots.ptteng.com/;
+                         #    proxy_set_header        Host            $host;
+                          #   proxy_set_header        X-Real-IP       $remote_addr;
+                           #  proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+                        }
+                    }
