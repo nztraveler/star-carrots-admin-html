@@ -56,11 +56,57 @@ ol, ul, li {
     margin: 0;
     padding: 0;
     list-style: none;
+
+}
+.vertical-middle{
+     vertical-align: middle;
+ }
+
+/*日历*/
+.date-wrap{
+    height: 26px;
+    display: inline-block;
+    vertical-align: middle;
 }
 
+@media only screen and (max-width: 533px){
+    .date-wrap{
+        width: 210px;
+        height: auto;
+        vertical-align:text-top;
+    }
+}
+.date-p{
+    width: 197px;
+    display: inline-table;
+}
+.date-input{
+    /*width: 157px !important;*/
+    height: 26px;
+    padding: 0;
+}
+.date-btn{
+    height: 26px;
+    padding: 3px 12px;
+}
+.date-span{
+    line-height: 26px;
+    height: 26px;
+    vertical-align: top;
+}
 
-
-
+/* ==========================================
+   表格
+   ========================================== */
+#table-customized th{
+    text-align: inherit !important;
+}
+#table-customized tr{
+     height: 65px;
+ }
+#table-customized  > thead > tr > th, #table-customized  > tbody > tr > th, #table-customized  > tfoot > tr > th, #table-customized  > thead > tr > td, #table-customized  > tbody > tr > td, #table-customized  > tfoot > tr > td {
+    vertical-align: middle;
+}
 
 /*常用公共样式*/
 .search-margin{

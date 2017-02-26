@@ -1,0 +1,23 @@
+
+<div class="date-wrap">
+        <p class="input-group date-p">
+            <input type="text" class="form-control date-input" uib-datepicker-popup ng-model="dt" is-open="popup1.opened"
+                   datepicker-options="dateOptions" ng-required="true" close-text="关闭" clear-text="清除"
+                   current-text="今天"
+                   alt-input-formats="altInputFormats"/>
+            <span class="input-group-btn ">
+            <button type="button" class="btn btn-default date-btn" ng-click="open1()"><i
+                    class="glyphicon glyphicon-calendar"></i></button>
+          </span>
+        </p>
+        <span class="date-span">-</span>
+        <p class="input-group date-p">
+            <input type="text" class="form-control date-input" uib-datepicker-popup ng-model="dtEnd" is-open="popup2.opened"
+                   datepicker-options="dateOptions2" ng-required="true" close-text="关闭" clear-text="清除"
+                   current-text="今天"/>
+            <span class="input-group-btn">
+            <button type="button" class="btn btn-default date-btn" ng-click="open2()"><i
+                    class="glyphicon glyphicon-calendar"></i></button>
+          </span>
+        </p>
+</div>

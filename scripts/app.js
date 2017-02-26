@@ -2,7 +2,7 @@
  * Created by CT on 2017/2/22.
  */
 "use strict";
-angular.module('admin',['ui.router','oc.lazyLoad'])
+angular.module('admin',['ui.router','ui.bootstrap','oc.lazyLoad'])
     .config(function ($stateProvider, $urlRouterProvider ,$ocLazyLoadProvider) {
     // 定义懒加载功能
     var _lazyLoad = function (loaded) {
@@ -63,7 +63,9 @@ angular.module('admin',['ui.router','oc.lazyLoad'])
             resolve:{
                 loadMyFile:_lazyLoad([
                     'styles/articleList.css',
-                    'scripts/articleList.js'
+                    'scripts/articleList.js',
+                    // 'scripts/datepicker/datepicker.css',
+                    // 'scripts/datepicker/datepicker.js'
                 ])
             }
         })
