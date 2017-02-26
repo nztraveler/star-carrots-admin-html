@@ -81,7 +81,7 @@ ol, ul, li {
     display: inline-table;
 }
 .date-input{
-    /*width: 157px !important;*/
+    width: 230px !important;
     height: 26px;
     padding: 0;
 }

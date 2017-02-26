@@ -2,10 +2,16 @@
  * Created by CT on 2017/2/25.
  */
 angular.module('admin')
+    //ui-bootstrap日历插件调试失败，弃用！
 .directive('timePicker',function () {
     return {
         restrict: 'E',
         templateUrl: 'views/TimePicker.html',
+        $scope: {
+            startAt: '=',
+            endAt: '=',
+            clear: '='
+        },
         replace: 'true',
         link: function ($scope) {
             $scope.today = function () {
@@ -99,7 +105,7 @@ angular.module('admin')
                         }
                     }
                 }
-                
+
                 //个人配置
                 // $scope.$watch('dtStart',function () {
                 //     $scope.dateOptions2={
@@ -113,5 +119,24 @@ angular.module('admin')
 
         }
 
+    }
+})
+
+.directive('bsPicker',function () {
+    return{
+        restrict: 'E',
+        templateUrl: 'views/bsPicker.html',
+        replace: 'true',
+        link: function ($scope){
+            $scope.today = new Date();
+            $scope.startMax = new Date();
+            $scope.$watch('vm.searchParams.endAt',function (newDate) {
+                if (newDate==null||newDate==undefined||newDate==''){
+                    $scope.startMax = new Date();
+                }else {
+                    $scope.startMax =newDate ;
+                }
+            })
+        }
     }
 })

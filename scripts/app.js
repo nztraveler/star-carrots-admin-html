@@ -64,6 +64,8 @@ angular.module('admin',['ui.router','ui.bootstrap','oc.lazyLoad'])
                 loadMyFile:_lazyLoad([
                     'styles/articleList.css',
                     'scripts/articleList.js',
+                    'bower_components/angular-1.3.18/angular-strap.js',
+                    'bower_components/angular-1.3.18/angular-strap.tpl.js',
                     // 'scripts/datepicker/datepicker.css',
                     // 'scripts/datepicker/datepicker.js'
                 ])
