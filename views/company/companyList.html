@@ -1,0 +1,109 @@
+<!--类型搜索-->
+<div>
+    <div class="">
+        <div class="">
+            <div class="pull-left search-margin">
+                <span class="">公司名称</span>
+                <input type="text"  ng-model="vm.company.name">
+            </div>
+            <div class="pull-left search-margin">
+                <span class="">产品名称</span>
+                <input type="text"  ng-model="vm.company.product">
+            </div>
+
+            <div class="pull-left search-margin ">
+                <span class="">公司行业</span>
+                <select ng-model="vm.company.industry"  ng-options=" x for (x, y) in vm.articleConstant.industry2" ></select>
+                <!--<input ng-model="vm.status"/>-->
+            </div>
+
+            <div class="pull-left search-margin ">
+                <span class="">地区</span>
+                <city-select select-result="vm.company.address"></city-select>
+                <!--<input ng-model="vm.status"/>-->
+            </div>
+
+
+
+            <div class="pull-left search-margin ">
+                <span class="">融资规模</span>
+                <select ng-model="vm.company.financing" ng-options=" x for (x, y) in vm.companyListConstant.financing2" ></select>
+                <!--<input ng-model="vm.status"/>-->
+            </div>
+
+            <div class="pull-left search-margin ">
+                <span class="">认证状态</span>
+                <select ng-model="vm.company.approved">
+                    <option value="">全部</option>
+                    <option value="0">未认证</option>
+                    <option value="1">已认证</option>
+                </select>
+                <!--<input ng-model="vm.status"/>-->
+            </div>
+
+
+            <div class="pull-left search-margin">
+                <span class="">冻结状态</span>
+                <select ng-model="vm.company.freezed">
+                    <option value="">全部</option>
+                    <option value="0">正常</option>
+                    <option value="1">冻结</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="pull-right">
+            <button ng-click="vm.clear()" type="button" class="btn btn-warning">清空</button>
+            <button ng-click="vm.search()" type="button" class="btn btn-primary">搜索</button>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    <!--表格开始-->
+    <div >
+        <button class="pull-right btn btn-primary" ng-click="vm.articleDetail()" type="button">新增</button>
+        <table class="table table-hover table-bordered table-condensed text-center" id="table-customized">
+            <thead >
+            <th>序号</th>
+            <th>公司名称</th>
+            <th>公司行业</th>
+            <th>地区</th>
+            <th>融资规模</th>
+            <th>认证状态</th>
+            <th>冻结状态</th>
+            <th>操作</th>
+            </thead>
+
+            <!--表格内容通过ng-repeat自动生成-->
+            <tbody>
+            <tr ng-repeat="x in vm.list track by $index">
+                <!--获取数组下标生成序号-->
+                <td>{{$index + 1}}</td>
+                <td>{{x.name}} </td>
+                <td> {{x.industryList[0]|Company:'industry'}}</td>
+                <td> {{x.city|cityFilter}}{{x.county|countyFilter}}</td>
+                <td>{{x.financing|Company:'financing'}}</td>
+                <td>{{x.approved|Company:'approved'}}</td>
+                <td>{{x.freezed|Company:'freezed'}}</td>
+                <td>
+                    <button ng-click=""class="btn btn-primary">职位</button>
+                    <button ng-click="vm.approve(x.id,1, x.approved)"class="btn btn-primary">{{x.approved|changeApprovedStatusFilter}}</button>
+                    <button ng-click=""class="btn btn-primary">编辑</button>
+                    <button ng-click="vm.freeze(x.id,0, x.freezed)"class="btn btn-danger">{{x.freezed|changeFreezedStatusFilter}}</button>
+                    <button ng-click="vm.delCompany(x.id)"class="btn btn-danger">删除</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <!--ui-bootstrap分页-->
+        <nav class="pull-right">
+            <ul class="pagination-sm" uib-pagination total-items="vm.num" ng-model="vm.param.page"
+                max-size="vm.maxSize" items-per-page="vm.maxPerPage" boundary-links="true" force-ellipses="true"
+                previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;">
+            </ul>
+            <!--<div>{{vm.article.page}}</div>-->
+        </nav>
+
+    </div>
+</div>

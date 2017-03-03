@@ -6,7 +6,7 @@ angular.module('admin')
 .directive('timePicker',function () {
     return {
         restrict: 'E',
-        templateUrl: 'views/TimePicker.html',
+        templateUrl: 'views/template/TimePicker.html',
         $scope: {
             startAt: '=',
             endAt: '=',
@@ -125,12 +125,12 @@ angular.module('admin')
 .directive('bsPicker',function () {
     return{
         restrict: 'E',
-        templateUrl: 'views/bsPicker.html',
+        templateUrl: 'views/template/bsPicker.html',
         replace: 'true',
         link: function ($scope){
             $scope.today = new Date();
             $scope.startMax = new Date();
-            $scope.$watch('vm.searchParams.endAt',function (newDate) {
+            $scope.$watch('vm.articleSearch.endAt',function (newDate) {
                 if (newDate==null||newDate==undefined||newDate==''){
                     $scope.startMax = new Date();
                 }else {
@@ -140,3 +140,35 @@ angular.module('admin')
         }
     }
 })
+
+
+//上传
+    .directive('upLoader', function (FileUploader) {
+        return {
+            restrict: 'E',
+            templateUrl: 'views/template/upload.html',
+            scope: {
+                logoUrl: '=ngModel',//图片上传后地址
+                tabName: '@'
+            },
+            replace: 'true',
+            link: function (scope, ele, attrs) {
+                scope.class = attrs.class;
+                scope.labelClass = attrs.labelClass;
+                scope.uploader = new FileUploader({//实例化
+                    url: '/lbd-admin/a/u/img/test',
+                    queueLimit: 1
+                });
+                scope.clearItem = function () {//清空队列
+                    scope.uploader.clearQueue()
+                };
+                scope.getUrl = function (files) {
+                    scope.fileList = files;
+                    scope.imgURL = window.URL.createObjectURL(scope.fileList[0]);//考虑性能用后清除
+                };
+                scope.uploader.onSuccessItem = function (item, response) {//上传成功返回地址
+                    scope.logoUrl = response.data.url
+                }
+            }
+        }
+    })

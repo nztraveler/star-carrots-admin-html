@@ -62,6 +62,10 @@ ol, ul, li {
      vertical-align: middle;
  }
 
+/*模态窗*/
+.modal-backdrop {
+    opacity: .5;
+}
 /*日历*/
 .date-wrap{
     height: 26px;
@@ -121,6 +125,11 @@ ol, ul, li {
     margin: 200px auto;
 }
 
+.width100{
+    width: 100px;
+    vertical-align: middle;
+}
+
 .lineheight-30{
     line-height: 30px;
 }
@@ -135,7 +144,9 @@ ol, ul, li {
 
 
 
-
+.clear{
+    clear: both;
+}
 
 
 .overflow{

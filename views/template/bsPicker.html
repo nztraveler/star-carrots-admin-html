@@ -3,13 +3,12 @@
         <input type="text" class="form-control date-input" size="14" bs-datepicker autoclose="true"
                data-date-format="yyyy-MM-dd" data-date-type="number"
                data-max-date="{{startMax}}"
-               ng-model="vm.searchParams.startAt"/>
-
+               ng-model="vm.articleSearch.startAt"/>
     </p>
     <span class="date-span">-</span>
     <p class="input-group date-p">
         <input type="text" class="form-control date-input" size="14" bs-datepicker autoclose="true"
                data-date-format="yyyy-MM-dd" data-date-type="number"
-               ng-model="vm.searchParams.endAt" data-min-date="{{vm.searchParams.startAt}}" data-max-date="{{today}}"/>
+               ng-model="vm.articleSearch.endAt" data-min-date="{{vm.articleSearch.startAt}}" data-max-date="{{today}}"/>
     </p>
 </div>
