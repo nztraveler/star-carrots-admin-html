@@ -25,7 +25,7 @@ function companySearch(companyListConstant,articleConstant,$http,$scope,$rootSco
     console.log($state.params.province);
     // 省市区数据转换
     vm.company.address = commonUtil.areaDateTransform($state.params.province, $state.params.city, $state.params.county);
-
+    console.log(vm.company.address);
     // 获取数据的ajax
     vm.getList = function(param){
         // console.log("2"+$state.params.page);
@@ -98,6 +98,10 @@ function companySearch(companyListConstant,articleConstant,$http,$scope,$rootSco
             });
         })
     };
+// 编辑
+    vm.companyDetail = function(id){
+        $state.go('field.companyDetail',{companyId: id});
+    }
 
 
     // 冻结解冻

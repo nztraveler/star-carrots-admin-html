@@ -203,12 +203,15 @@ angular.module('admin')
             // 下拉多选数据 转换为 公司行业数据
             selectIndustryListTransform: function (industryList, selectedIndustryGroup) {
                 industryList = selectedIndustryGroup.map(function (item) {
+                    console.log('执行1');
                     if (item.ticked === true) {
+                        console.log('执行2');
                         var x = item.industry;
                         item = {};
                         item.industry = x;
                         return item
                     } else {
+                        console.log('执行3');
                         item.clear();
                     }
                 });
@@ -217,13 +220,16 @@ angular.module('admin')
 
             // 省市区数据转换
             areaTransform: function (newarea, oldarea, type) {
-                newarea.province = oldarea.province;
+                 // console.log(222)
+                newarea.province =oldarea.province;
                 newarea.city = oldarea.city;
                 if (type === 0) {
                     newarea.district = oldarea.county
                 } else {
                     newarea.county = oldarea.district
                 }
+                // console.log(newarea);
+                // return newarea;
             },
             // 省市区地址数据处理
             areaDateTransform: function (province, city, county) {

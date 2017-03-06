@@ -1,0 +1,57 @@
+<div>
+    <div >
+        <div class="">
+            <div class="pull-left search-margin">
+                <span class="">在招职位</span>
+                <input type="text"  ng-model="vm.searchParams.companyName">
+            </div>
+            <div class="pull-left search-margin">
+                <span class="">职位名称</span>
+                <input type="text"  ng-model="vm.searchParams.name">
+            </div>
+
+            <div class="pull-left search-margin ">
+                <span class="">工作经验</span>
+                <select ng-model="vm.searchParams.experience"  ng-options=" x for (x, y) in vm.ProfessionConstant.experience2" ></select>
+                <!--<input ng-model="vm.status"/>-->
+            </div>
+
+        发布时间
+
+
+            <div class="pull-left search-margin ">
+                <span class="">学历要求</span>
+                <select ng-model="vm.searchParams.education" ng-options=" x for (x, y) in vm.ProfessionConstant.education2" ></select>
+            </div>
+
+            <div class="pull-left search-margin ">
+                <span class="">职业类别</span>
+                <select ng-model="vm.searchParams.category" ng-options=" x for (x, y) in vm.companyListConstant.financing2" ></select>
+                职业子类
+            </div>
+
+            <div class="pull-left search-margin ">
+                <span class="">薪 资</span>
+                <select ng-model="vm.searchParams.compensation" ng-options=" x for (x, y) in vm.ProfessionConstant.compensation2" ></select>
+            </div>
+
+            <div class="pull-left search-margin ">
+                <span class="">状态</span>
+                <select ng-model="vm.searchParams.status">
+                    <option value="">全部</option>
+                    <option value="0">未认证</option>
+                    <option value="1">已认证</option>
+                </select>
+                <!--<input ng-model="vm.status"/>-->
+            </div>
+
+        </div>
+
+        <div class="pull-right">
+            <button ng-click="vm.clear()" type="button" class="btn btn-warning">清空</button>
+            <button ng-click="vm.search()" type="button" class="btn btn-primary">搜索</button>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+</div>

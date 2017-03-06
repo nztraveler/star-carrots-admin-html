@@ -20,6 +20,10 @@
             <div class="pull-left search-margin ">
                 <span class="">地区</span>
                 <city-select select-result="vm.company.address"></city-select>
+                <!--<input text="number" ng-model="vm.company.address.province">-->
+                <!--<input text="number" ng-model="vm.company.address.city">-->
+                <!--<input text="number" ng-model="vm.company.address.district">-->
+                <!--{{vm.company.address}}-->
                 <!--<input ng-model="vm.status"/>-->
             </div>
 
@@ -61,7 +65,7 @@
 
     <!--表格开始-->
     <div >
-        <button class="pull-right btn btn-primary" ng-click="vm.articleDetail()" type="button">新增</button>
+        <button class="pull-right btn btn-primary"  ui-sref="field.companyDetail" type="button">新增</button>
         <table class="table table-hover table-bordered table-condensed text-center" id="table-customized">
             <thead >
             <th>序号</th>
@@ -88,7 +92,7 @@
                 <td>
                     <button ng-click=""class="btn btn-primary">职位</button>
                     <button ng-click="vm.approve(x.id,1, x.approved)"class="btn btn-primary">{{x.approved|changeApprovedStatusFilter}}</button>
-                    <button ng-click=""class="btn btn-primary">编辑</button>
+                    <button class="btn btn-primary" ng-click="vm.companyDetail(x.id)">编辑</button>
                     <button ng-click="vm.freeze(x.id,0, x.freezed)"class="btn btn-danger">{{x.freezed|changeFreezedStatusFilter}}</button>
                     <button ng-click="vm.delCompany(x.id)"class="btn btn-danger">删除</button>
                 </td>

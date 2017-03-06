@@ -103,3 +103,219 @@ angular.module('admin')
         ]
 
     })
+
+    // 公司行业多选数据
+    .constant('companyIndustryGroup', [
+        {
+            industry: 0,
+            name: '移动互联网'
+            // ticked: true
+        },
+        {
+            name: '电子商务',
+            industry: 1
+        },
+        {
+            name: '企业服务 ',
+            industry: '2'
+        },
+        {
+            name: 'O2O',
+            industry: '3'
+        },
+        {
+            name: '教育',
+            industry: '4'
+        },
+        {
+            name: '金融',
+            industry: '5'
+
+        },
+        {
+            name: '游戏',
+            industry: '6'
+        }
+    ])
+
+    //职业数据
+    .constant('ProfessionConstant', {
+        'tabelTitle': ['序号', '公司名称', '职位名称', '职位类别', '薪资', '学历要求', '工作经验', '发布时间', '状态', '操作'],
+        'recommend': [
+            {type: null, name: '全部'},
+            {type: 0, name: '普通'},
+            {type: 1, name: '推荐'},
+        ],
+        'category': [
+            {type: null, name: '全部'},
+            {type: 1, name: '产品'},
+            {type: 2, name: 'UI'},
+            {type: 3, name: 'QA'},
+            {type: 4, name: 'Android'},
+            {type: 5, name: 'IOS'},
+            {type: 6, name: 'WEB'},
+            {type: 7, name: 'OP'},
+            {type: 8, name: 'Java'},
+            {type: 9, name: 'NLP'},
+            {type: 10, name: 'DM'},
+            {type: 11, name: 'DL'}
+        ],
+        'subCategory': [
+            {
+                type: 1,
+                name: "产品",
+                data: [{type: null, name: '不限', choose: true},
+                    {type: 1, name: '助理', choose: false},
+                    {type: 2, name: '初级', choose: false},
+                    {type: 3, name: '中级', choose: false},
+                    {type: 4, name: '高级', choose: false},
+                    {type: 5, name: '总监', choose: false}]
+            },
+            {
+                type: 2,
+                name: "UI",
+                data: [{type: null, name: '不限', choose: true},
+                    {type: 1, name: '初级', choose: false},
+                    {type: 2, name: '中级', choose: false},
+                    {type: 3, name: '高级', choose: false},
+                    {type: 4, name: '总监', choose: false}
+                ]
+            },
+            {
+                type: 3,
+                name: "QA",
+                data: [{type: null, name: '不限', choose: true},
+                    {type: 1, name: '初级', choose: false},
+                    {type: 2, name: '中级', choose: false},
+                    {type: 3, name: '高级', choose: false}
+                ]
+            },
+            {
+                type: 4,
+                name: "Android",
+                data: [{type: null, name: '不限', choose: true},
+                    {type: 1, name: '初级', choose: false},
+                    {type: 2, name: '中级', choose: false},
+                    {type: 3, name: '高级', choose: false}
+                ]
+            },
+            {
+                type: 5,
+                name: "IOS",
+                data: [{type: null, name: '不限', choose: true},
+                    {type: 1, name: '初级', choose: false},
+                    {type: 2, name: '中级', choose: false},
+                    {type: 3, name: '高级', choose: false}
+                ]
+            },
+            {
+                type: 6,
+                name: "WEB",
+                data: [{type: null, name: '不限', choose: true},
+                    {type: 1, name: '初级', choose: false},
+                    {type: 2, name: '中级', choose: false},
+                    {type: 3, name: '高级', choose: false}
+                ]
+            },
+            {
+                type: 7,
+                name: "OP",
+                data: [{type: null, name: '不限', choose: true},
+                    {type: 1, name: '初级', choose: false},
+                    {type: 2, name: '中级', choose: false},
+                    {type: 3, name: '高级', choose: false}
+                ]
+            },
+            {
+                type: 8,
+                name: "Java",
+                data: [{type: null, name: '不限', choose: true},
+                    {type: 1, name: '初级', choose: false},
+                    {type: 2, name: '中级', choose: false},
+                    {type: 3, name: '高级', choose: false},
+                    {type: 4, name: '总监', choose: false}
+                ]
+            },
+            {
+                type: 9,
+                name: "NLP",
+                data: [{type: null, name: '不限', choose: true},
+                    {type: 1, name: '初级', choose: false},
+                    {type: 2, name: '中级', choose: false},
+                    {type: 3, name: '高级', choose: false}
+                ]
+            },
+            {
+                type: 10,
+                name: "DM",
+                data: [{type: null, name: '不限', choose: true},
+                    {type: 1, name: '初级', choose: false},
+                    {type: 2, name: '中级', choose: false},
+                    {type: 3, name: '高级', choose: false}
+                ]
+            },
+            {
+                type: 11,
+                name: "DL",
+                data: [{type: null, name: '不限', choose: true},
+                    {type: 1, name: '初级', choose: false},
+                    {type: 2, name: '中级', choose: false},
+                    {type: 3, name: '高级', choose: false}
+                ]
+            }
+        ],
+        'education': [
+            {type: null, name: '全部'},
+            {type: 0, name: '大专'},
+            {type: 1, name: '本科'},
+            {type: 2, name: '硕士'},
+            {type: 3, name: '博士及以上'}
+        ],
+        'education2': {
+            '全部':null,
+            '大专':0,
+            '本科':1,
+            '硕士':2,
+            '博士及以上':3,
+
+        },
+
+        'experience': [
+            {type: null, name: '全部'},
+            {"type": 0, name: '应届'},
+            {"type": 1, name: '1~2年'},
+            {"type": 2, name: '3~5年'},
+            {"type": 3, name: '6～9年'},
+            {"type": 4, name: '10年及以上'}
+        ],
+
+        'experience2': {
+            '全部': null,
+            '应届': 0,
+            '1~2年': 1,
+            '3~5年': 2,
+            '6～9年': 3,
+            '10年及以上': 4,
+        },
+
+        'compensation': [
+            {type: null, name: '全部'},
+            {"type": 0, name: "0-8k"},
+            {"type": 1, name: "8-15k"},
+            {"type": 2, name: "16-25k"},
+            {"type": 3, name: "26k及以上"}
+        ],
+        'compensation2': {
+            '全部': null,
+            '0-8k': 0,
+            '8-15k': 1,
+            '16-25k': 2,
+            '26k及以上': 3,
+        },
+
+        'status': [
+            {type: null, name: '全部'},
+            {"type": 0, name: "下架"},
+            {"type": 1, name: "上架"},
+        ]
+    })

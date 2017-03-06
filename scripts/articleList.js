@@ -2,7 +2,7 @@
  * Created by CT on 2017/2/22.
  */
 'use strict';
-angular.module('admin').controller('articleList',['articleConstant','$http','$scope','$rootScope','$state','$stateParams','ArticleManagementService',articleSearch ]);
+    angular.module('admin').controller('articleList',['articleConstant','$http','$scope','$rootScope','$state','$stateParams','ArticleManagementService',articleSearch ]);
 
 function articleSearch(articleConstant,$http,$scope,$rootScope,$state,$stateParams,ArticleManagementService){//这里注入的东西，一定要和[]里的完全一样，不然会报错
     var vm = this ;
@@ -136,6 +136,8 @@ function articleSearch(articleConstant,$http,$scope,$rootScope,$state,$statePara
             });
         }
     };
+
+
 
 
 }

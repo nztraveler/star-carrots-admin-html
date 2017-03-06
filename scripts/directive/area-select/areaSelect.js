@@ -1,3 +1,5 @@
+
+
 /*
  * 和citySelect的区别在于用的数据源不同，为了将就以前的数据源。。。。
  *
@@ -21,7 +23,7 @@ angular.module("admin")
                 selectResult: '=',
                 selectData: '='
             },
-            template: '<div class="row">' +
+            template: '<div class="row vertical-middle">' +
             '<div class="col-md-4">' +
             '<select required name="province" class="form-control" ng-model="province" ng-options="province.ProID as province.ProName for province in provinces">' +
             '<option value="">请选择省份</option>' +
@@ -124,7 +126,6 @@ angular.module("admin")
                         }
                     });
                 }
-
 
             }
         }

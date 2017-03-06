@@ -278,6 +278,32 @@ angular.module('admin',['ui.router','ui.bootstrap','oc.lazyLoad','mgcrea.ngStrap
                 ])
             }
         })
-
+        // 公司编辑页
+        .state('field.companyDetail',{
+            url: '/companyDetail?companyId&province&county&city',
+            templateUrl: 'views/company/companyDetail.html',
+            controller: 'companyDetail',
+            controllerAs: 'vm',
+            resolve:{
+                loadMyFile:_lazyLoad([
+                    'scripts/companyDetail.js',
+                    'area-selcet',
+                    'scripts/directive/isteven-multi-select/isteven-multi-select.js',
+                    'scripts/directive/isteven-multi-select/isteven-multi-select.css'
+                ])
+            }
+        })
+        // 职位列表页
+        .state('field.positionList',{
+            url: '/positionList?page&size&companyId&companyName&name&experience&startAt&endAt&education&compensation&status&subCategory&category',
+            templateUrl: 'views/position/positionList.html',
+            controller: 'positionList',
+            controllerAs: 'vm',
+            resolve:{
+                loadMyFile:_lazyLoad([
+                    'scripts/positionList.js',
+                ])
+            }
+        })
 
 });
