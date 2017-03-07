@@ -215,7 +215,7 @@ angular.module('admin',['ui.router','ui.bootstrap','oc.lazyLoad','mgcrea.ngStrap
                 loadMyFile:_lazyLoad([
                     // 这里注入要加载的文件
                     'styles/login.css',
-                    'scripts/login.js'
+                    'scripts/controller/login.js'
                 ])
             }
         })
@@ -248,7 +248,7 @@ angular.module('admin',['ui.router','ui.bootstrap','oc.lazyLoad','mgcrea.ngStrap
             controllerAs: 'vm',
             resolve:{
                 loadMyFile:_lazyLoad([
-                    'scripts/articleList.js',
+                    'scripts/controller/articleList.js',
                 ])
             }
         })
@@ -260,7 +260,7 @@ angular.module('admin',['ui.router','ui.bootstrap','oc.lazyLoad','mgcrea.ngStrap
             controllerAs: 'vm',
             resolve:{
                 loadMyFile:_lazyLoad([
-                    'scripts/articleDetail.js',
+                    'scripts/controller/articleDetail.js',
                 ])
             }
         })
@@ -274,7 +274,7 @@ angular.module('admin',['ui.router','ui.bootstrap','oc.lazyLoad','mgcrea.ngStrap
                 loadMyFile:_lazyLoad([
                     'area-selcet',
                     'scripts/constant/areaConstant.js',
-                    'scripts/companyList.js',
+                    'scripts/controller/companyList.js',
                 ])
             }
         })
@@ -286,7 +286,7 @@ angular.module('admin',['ui.router','ui.bootstrap','oc.lazyLoad','mgcrea.ngStrap
             controllerAs: 'vm',
             resolve:{
                 loadMyFile:_lazyLoad([
-                    'scripts/companyDetail.js',
+                    'scripts/controller/companyDetail.js',
                     'area-selcet',
                     'scripts/directive/isteven-multi-select/isteven-multi-select.js',
                     'scripts/directive/isteven-multi-select/isteven-multi-select.css'
@@ -301,8 +301,18 @@ angular.module('admin',['ui.router','ui.bootstrap','oc.lazyLoad','mgcrea.ngStrap
             controllerAs: 'vm',
             resolve:{
                 loadMyFile:_lazyLoad([
-                    'scripts/positionList.js',
+                    'scripts/controller/positionList.js',
                 ])
+            }
+        })
+        // 职位详情
+        .state('field.positionDetail', {
+            url: '/positionDetail?id&companyId&companyName',
+            templateUrl: 'views/position/positionDetail.html',
+            controller: 'positionDetailCtrl',
+            controllerAs: 'vm',
+            resolve: {
+                loadMyFile: _lazyLoad('scripts/controller/positionDetail.js')
             }
         })
 

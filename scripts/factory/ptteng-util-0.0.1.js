@@ -2,7 +2,7 @@
 
 angular.module('admin')
 
-    .factory('commonUtil', function ($rootScope, $state) {
+    .factory('commonUtil', function ($rootScope, $state, categoryData) {
         return {
             pageDefault: {page: 1, size: 10, next: true},
 
@@ -21,13 +21,13 @@ angular.module('admin')
                 return param
             },
 
-            // getSubCategoryFn: function (id) {
-            //     for (var i = 0; i < categoryData.length; i++) {
-            //         if (id == categoryData[i].id) {
-            //             return categoryData[i].subCategory;
-            //         }
-            //     }
-            // },
+            getSubCategoryFn: function (id) {
+                for (var i = 0; i < categoryData.length; i++) {
+                    if (id == categoryData[i].id) {
+                        return categoryData[i].subCategory;
+                    }
+                }
+            },
 
             //时间戳处理
             querySearchParams: function (params) {

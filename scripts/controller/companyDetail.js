@@ -84,7 +84,7 @@ angular.module('admin')
                     vm.detail = res.data.data;
                     console.log(vm.detail);
                     //电话号码转换
-                    if(vm.detail.company.phone !== undefined){
+                    if(vm.detail.company.phone !== undefined && vm.detail.company.phone !== ''){
                         vm.detail.company.phone = Number(vm.detail.company.phone);
                     }
                     // 省市区数据转换\
@@ -103,9 +103,9 @@ angular.module('admin')
                 }
 
             });
-
-
-        };
+        }else{
+            vm.detail.company.name = null;
+        }
 
         // 新增/编辑 操作
         vm.newCompany = function () {

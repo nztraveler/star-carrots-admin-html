@@ -65,6 +65,45 @@ ol, ul, li {
 .relative {
     position: relative;
 }
+/*表单样式*/
+select{
+    height: 26px !important;
+    padding: 0!important;
+
+}
+select[disabled]{
+    cursor: not-allowed;
+    background-color: #eee;
+    opacity: 1;
+}
+button[disabled]{
+    cursor: not-allowed !important;
+    pointer-events: inherit !important;
+}
+
+.multiSelect > button {
+     height: 26px !important;
+     min-height: 26px !important;
+}
+/*地区选择*/
+@media only screen and (min-width: 540px){
+    .col-my-4{
+        float: left;
+        width: 33.33333333%;
+        position: relative;
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+        box-sizing: border-box;
+    }
+}
+@media only screen and (max-width: 583px){
+    .width100-small{
+        width: 100%;
+    }
+}
+
+
 
 /*模态窗*/
 .modal-backdrop {
@@ -83,7 +122,11 @@ ol, ul, li {
         height: auto;
         vertical-align:text-top;
     }
+
 }
+
+
+
 .date-p{
     width: 197px;
     display: inline-table;
@@ -117,6 +160,14 @@ ol, ul, li {
 }
 
 /*常用公共样式*/
+.blue{
+    font-size: 16px;
+    color: #fff !important;
+    background-color: #428bca!important;
+}
+.blue-color{
+    color: #428bca;
+}
 .search-margin{
     margin: 10px;
 }
@@ -124,12 +175,20 @@ ol, ul, li {
 .margin-10px-auto{
     margin: 10px auto;
 }
-
+.margin-10-tb {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
 .margin-10 {
     margin-left: 10px;
     margin-right: 10px;
 }
-
+.pd-lf-0{
+    padding-left: 0;
+}
+.pd-r-0{
+    padding-right: 0;
+}
 .pd-top-bottom-10 {
     padding-top: 10px;
     padding-bottom: 10px;
@@ -155,6 +214,12 @@ ol, ul, li {
 .fs-16{
     font-size: 16px;
 }
+
+.border{
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
 
 .clear{
     clear: both;

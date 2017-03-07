@@ -317,5 +317,229 @@ angular.module('admin')
             {type: null, name: '全部'},
             {"type": 0, name: "下架"},
             {"type": 1, name: "上架"},
+        ],
+        'status2': [
+            {type: null, name: '全部'},
+            {"type": 1, name: "下架"},
+            {"type": 0, name: "上架"},
         ]
     })
+
+    // 职业分类二级联动数据
+    .constant('categoryData', [
+        {
+            id: 1,
+            name: "产品",
+            subCategory: [
+                {
+                    id: 1,
+                    name: "助理"
+                },
+                {
+                    id: 2,
+                    name: "初级"
+                },
+                {
+                    id: 3,
+                    name: "中级"
+                },
+                {
+                    id: 4,
+                    name: "高级"
+                },
+                {
+                    id: 5,
+                    name: "总监"
+                }
+            ]
+        },
+        {
+            id: 2,
+            name: "UI",
+            subCategory: [
+                {
+                    id: 1,
+                    name: "初级"
+                },
+                {
+                    id: 2,
+                    name: "中级"
+                },
+                {
+                    id: 3,
+                    name: "高级"
+                },
+                {
+                    id: 4,
+                    name: "总监"
+                }
+            ]
+        },
+        {
+            id: 3,
+            name: "QA",
+            subCategory: [
+                {
+                    id: 1,
+                    name: "初级"
+                },
+                {
+                    id: 2,
+                    name: "中级"
+                },
+                {
+                    id: 2,
+                    name: "高级"
+                }
+            ]
+        },
+        {
+            id: 4,
+            name: "Android",
+            subCategory: [
+                {
+                    id: 1,
+                    name: "初级"
+                },
+                {
+                    id: 2,
+                    name: "中级"
+                },
+                {
+                    id: 3,
+                    name: "高级"
+                }
+            ]
+        },
+        {
+            id: 5,
+            name: "IOS",
+            subCategory: [
+                {
+                    id: 1,
+                    name: "初级"
+                },
+                {
+                    id: 2,
+                    name: "中级"
+                },
+                {
+                    id: 3,
+                    name: "高级"
+                }
+            ]
+        },
+        {
+            id: 6,
+            name: "WEB",
+            subCategory: [
+                {
+                    id: 1,
+                    name: "初级"
+                },
+                {
+                    id: 2,
+                    name: "中级"
+                },
+                {
+                    id: 3,
+                    name: "高级"
+                }
+            ]
+        },
+        {
+            id: 7,
+            name: "OP",
+            subCategory: [
+                {
+                    id: 1,
+                    name: "初级"
+                },
+                {
+                    id: 2,
+                    name: "中级"
+                },
+                {
+                    id: 3,
+                    name: "高级"
+                }
+            ]
+        },
+        {
+            id: 8,
+            name: "JAVA",
+            subCategory: [
+                {
+                    id: 1,
+                    name: "初级"
+                },
+                {
+                    id: 2,
+                    name: "中级"
+                },
+                {
+                    id: 3,
+                    name: "高级"
+                },
+                {
+                    id: 4,
+                    name: "总监"
+                }
+            ]
+        },
+        {
+            id: 9,
+            name: "NLP",
+            subCategory: [
+                {
+                    id: 1,
+                    name: "初级"
+                },
+                {
+                    id: 2,
+                    name: "中级"
+                },
+                {
+                    id: 3,
+                    name: "高级"
+                }
+            ]
+        },
+        {
+            id: 10,
+            name: "DM",
+            subCategory: [
+                {
+                    id: 1,
+                    name: "初级"
+                },
+                {
+                    id: 2,
+                    name: "中级"
+                },
+                {
+                    id: 3,
+                    name: "高级"
+                }
+            ]
+        },
+        {
+            id: 11,
+            name: "DL",
+            subCategory: [
+                {
+                    id: 1,
+                    name: "初级"
+                },
+                {
+                    id: 2,
+                    name: "中级"
+                },
+                {
+                    id: 3,
+                    name: "高级"
+                }
+            ]
+        }
+
+    ]);

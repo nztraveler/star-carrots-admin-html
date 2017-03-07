@@ -1,24 +1,24 @@
 <!--类型搜索-->
 <div>
-    <div class="">
+    <div class="border">
         <div class="">
             <div class="pull-left search-margin">
-                <span class="">公司名称</span>
+                <span class="">公司名称: </span>
                 <input type="text"  ng-model="vm.company.name">
             </div>
             <div class="pull-left search-margin">
-                <span class="">产品名称</span>
+                <span class="">产品名称: </span>
                 <input type="text"  ng-model="vm.company.product">
             </div>
 
             <div class="pull-left search-margin ">
-                <span class="">公司行业</span>
+                <span class="">公司行业: </span>
                 <select ng-model="vm.company.industry"  ng-options=" x for (x, y) in vm.articleConstant.industry2" ></select>
                 <!--<input ng-model="vm.status"/>-->
             </div>
 
             <div class="pull-left search-margin ">
-                <span class="">地区</span>
+                <span class="">地&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp区: </span>
                 <city-select select-result="vm.company.address"></city-select>
                 <!--<input text="number" ng-model="vm.company.address.province">-->
                 <!--<input text="number" ng-model="vm.company.address.city">-->
@@ -27,16 +27,14 @@
                 <!--<input ng-model="vm.status"/>-->
             </div>
 
-
-
             <div class="pull-left search-margin ">
-                <span class="">融资规模</span>
+                <span class="">融资规模: </span>
                 <select ng-model="vm.company.financing" ng-options=" x for (x, y) in vm.companyListConstant.financing2" ></select>
                 <!--<input ng-model="vm.status"/>-->
             </div>
 
             <div class="pull-left search-margin ">
-                <span class="">认证状态</span>
+                <span class="">认证状态: </span>
                 <select ng-model="vm.company.approved">
                     <option value="">全部</option>
                     <option value="0">未认证</option>
@@ -47,7 +45,7 @@
 
 
             <div class="pull-left search-margin">
-                <span class="">冻结状态</span>
+                <span class="">冻结状态: </span>
                 <select ng-model="vm.company.freezed">
                     <option value="">全部</option>
                     <option value="0">正常</option>
@@ -56,7 +54,7 @@
             </div>
         </div>
 
-        <div class="pull-right">
+        <div class="pull-right margin-10-tb">
             <button ng-click="vm.clear()" type="button" class="btn btn-warning">清空</button>
             <button ng-click="vm.search()" type="button" class="btn btn-primary">搜索</button>
         </div>
@@ -65,7 +63,7 @@
 
     <!--表格开始-->
     <div >
-        <button class="pull-right btn btn-primary"  ui-sref="field.companyDetail" type="button">新增</button>
+        <button class="pull-right btn btn-primary margin-10-tb"  ui-sref="field.companyDetail" type="button">新增</button>
         <table class="table table-hover table-bordered table-condensed text-center" id="table-customized">
             <thead >
             <th>序号</th>
@@ -90,7 +88,7 @@
                 <td>{{x.approved|Company:'approved'}}</td>
                 <td>{{x.freezed|Company:'freezed'}}</td>
                 <td>
-                    <button ng-click=""class="btn btn-primary">职位</button>
+                    <button ui-sref="field.positionList({companyId:x.id,companyName:x.name})" class="btn btn-primary">职位</button>
                     <button ng-click="vm.approve(x.id,1, x.approved)"class="btn btn-primary">{{x.approved|changeApprovedStatusFilter}}</button>
                     <button class="btn btn-primary" ng-click="vm.companyDetail(x.id)">编辑</button>
                     <button ng-click="vm.freeze(x.id,0, x.freezed)"class="btn btn-danger">{{x.freezed|changeFreezedStatusFilter}}</button>

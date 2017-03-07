@@ -24,17 +24,17 @@ angular.module("admin")
                 selectData: '='
             },
             template: '<div class="row vertical-middle">' +
-            '<div class="col-md-4">' +
+            '<div class="col-sm-4 col-my-4">' +
             '<select required name="province" class="form-control" ng-model="province" ng-options="province.ProID as province.ProName for province in provinces">' +
             '<option value="">请选择省份</option>' +
             '</select>' +
             '</div>' +
-            '<div class="col-md-4">' +
+            '<div class="col-sm-4 col-my-4">' +
             '<select required name="city" class="form-control" ng-model="city" ng-options="city.CityID as city.CityName for city in filteredCities">' +
             '<option value="">请选择城市</option>' +
             '</select>' +
             '</div>' +
-            '<div class="col-md-4">' +
+            '<div class="col-sm-4 col-my-4">' +
             '<select required name="district" class="form-control" ng-model="district" ng-options="district.Id as district.countyName for district in filteredDistricts">' +
             '<option value="">请选择地区</option>' +
             '</select>' +

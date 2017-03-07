@@ -42,7 +42,7 @@ angular.module("admin")
                 return "/carrots-admin-ajax/a/u/profession/" + id
             },
             // 职业冻结修改接口
-            putPositionstatus_url: function (params, id) {
+            putPositionstatus_url: function (id,params) {
                 console.log(id);
                 return "/carrots-admin-ajax/a/u/profession/status/?id=" + id + "&status=" + params
             },

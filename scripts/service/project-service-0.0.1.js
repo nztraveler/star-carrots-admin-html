@@ -65,9 +65,9 @@ angular.module('admin')
             },
 
             //职业上下架修改
-            putPositionstatus: function (params, id) {
-                console.log(pathProject.putPositionstatus_url(params, id));
-                return $http.put(pathProject.putPositionstatus_url(params, id))
+            putPositionstatus: function (id,params) {
+                console.log(pathProject.putPositionstatus_url(id,params));
+                return $http.put(pathProject.putPositionstatus_url(id,params))
 
             },
             //职业删除

@@ -2,13 +2,16 @@
 
 <div class="panel panel-default">
     <div class="panel-heading overflow">
-        <span class="pull-left">详细信息</span>
-        <select class="pull-right"
-                ng-model="vm.detail.company.approved">
-            <option value="">请选择</option>
-            <option value=0>未认证</option>
-            <option value=1>已认证</option>
-        </select>
+        <span class="pull-left">{{vm.detail.company.name}}详细信息</span>
+        <div class="pull-right">
+            <span>*</span>
+            <select
+                    ng-model="vm.detail.company.approved">
+                <option value="">请选择</option>
+                <option value=0>未认证</option>
+                <option value=1>已认证</option>
+            </select>
+        </div>
     </div>
     <form class="panel-body" name="myform">
         <!--详细信息区域-->
@@ -31,9 +34,8 @@
                 <select ng-model="vm.detail.company.financing" ng-options=" x for (x, y) in vm.companyListConstant.financing2" required></select>
             </div>
 
-            <div class="pull-left search-margin ">
-                <span class="">*地区</span>
-
+            <div class="pull-left search-margin width100-small">
+                <label class="">*地&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp区</label>
                 <city-select
                 ng-if="!vm.companyId || vm.area.province || vm.detail.company.id "
                 ng-class="{'error':myform.province.$invalid && myform.province.$touched ||
@@ -48,9 +50,9 @@
                 <!--<input ng-model="vm.status"/>-->
             </div>
             <div class="pull-left search-margin ">
-                <span class="">*公司行业</span>
+                <label class="vertical-middle">*公司行业</label>
 
-                    <div
+                    <div class="vertical-middle"
                             isteven-multi-select
                             input-model="vm.companyIndustryGroup"
                             output-model="vm.selectedIndustryGroup"
@@ -66,10 +68,9 @@
             <!--公司logo-->
             <div class="row form-group">
                 <div class="clear"></div>
-                <label class="col-md-2 control-label word-spacing-25">
-                    *公司Logo</label>
-                <div class="col-md-10 padding-0">
-                    <div class="col-md-12 ">
+                <label class="col-sm-2 control-label word-spacing-25 pd-r-0">&nbsp&nbsp*公司Logo</label>
+                <div class="col-sm-10 padding-0">
+                    <div class="col-sm-12 ">
                         <label class="btn btn-primary" for="file1">选择文件</label>
                         <input id="file1"
                                style="display: none"
@@ -78,10 +79,10 @@
                                uploader="vm.uploader1"
                         />
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-xs-12">
                         <img ng-src="{{vm.detail.company.logo}}" alt="配图预览" class="img-responsive">
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-xs-12">
                         <div class="table-responsive padding-0">
                             <table class="table">
                                 <thead>
@@ -130,19 +131,20 @@
                 </div>
             </div>
             <!--公司logoend-->
-            <div class="col-xs-12 search-margin">
-                <label class="col-xs-2">*公司介绍</label>
-                <textarea type="text" class="col-xs-10" ng-model="vm.detail.company.summary" rows="6" maxlength="1000"required></textarea>
+            <div class="search-margin overflow">
+                <label class="col-sm-2 col-xs-12 pd-lf-0">*公司介绍</label>
+                <textarea type="text" class="col-sm-10 col-xs-12" ng-model="vm.detail.company.summary" rows="6" maxlength="1000"required></textarea>
             </div>
 
 <!--公司标签-->
-            <div class="row form-group">
-                <label class=" control-label col-md-2">公司标签</label>
-                <div class="col-md-4">
+            <div class="search-margin">
+                <div class="clear"></div>
+                <label class="control-label col-sm-2 col-xs-12 vertical-middle pd-lf-0">公司标签</label>
+                <div class="col-sm-10 col-xs-12 vertical-middle pd-lf-0">
                     <div class="input-group">
                         <input class="form-control"
                                maxlength="10"
-                               ng-model="vm.tag" type="text">
+                               ng-model="vm.tag" type="text" placeholder="每个标签仅限10字，不可重复">
                         <div class="input-group-addon" ng-click="vm.addTag()">+</div>
                     </div>
                 </div>
@@ -179,10 +181,10 @@
         <!--产品logo-->
         <div class="row form-group">
             <div class="clear"></div>
-            <label class="col-md-2 control-label word-spacing-25">
-                产品Logo</label>
-            <div class="col-md-10 padding-0">
-                <div class="col-md-12 ">
+            <label class="col-sm-2 control-label word-spacing-25 pd-r-0">
+                &nbsp&nbsp*产品Logo</label>
+            <div class="col-sm-10 padding-0">
+                <div class="col-sm-12">
                     <label class="btn btn-primary" for="file2">选择文件</label>
                     <input id="file2"
                            style="display: none"
@@ -191,10 +193,10 @@
                            uploader="vm.uploader2"
                     />
                 </div>
-                <div class="col-md-12">
+                <div class="col-xs-12">
                     <img ng-src="{{vm.detail.productList[0].logo}}" alt="配图预览" class="img-responsive">
                 </div>
-                <div class="col-md-12">
+                <div class="col-xs-12">
                     <div class="table-responsive padding-0">
                         <table class="table">
                             <thead>
@@ -243,9 +245,9 @@
             </div>
         </div>
         <!--产品logoend-->
-        <div class="col-xs-12 search-margin">
-            <label class="col-xs-2">产品介绍</label>
-            <textarea type="text" class="col-xs-10" ng-model="vm.detail.productList[0].summary" rows="6" maxlength="1000"></textarea>
+        <div class="search-margin overflow">
+            <label class="col-sm-2 col-xs-12 pd-lf-0">产品介绍</label>
+            <textarea type="text" class="col-sm-10 col-xs-12" ng-model="vm.detail.productList[0].summary" rows="6" maxlength="1000"></textarea>
         </div>
     </div>
     </div>
@@ -268,10 +270,10 @@
             <!--地图-->
             <div class="row form-group">
                 <div class="clear"></div>
-                <label class="col-md-2 control-label word-spacing-25">
-                    产品Logo</label>
-                <div class="col-md-10 padding-0">
-                    <div class="col-md-12 ">
+                <label class="col-sm-2 control-label word-spacing-25 pd-r-0">
+                    &nbsp&nbsp公司地图</label>
+                <div class="col-sm-10 padding-0">
+                    <div class="col-sm-12 ">
                         <label class="btn btn-primary" for="file3">选择文件</label>
                         <input id="file3"
                                style="display: none"
@@ -280,10 +282,10 @@
                                uploader="vm.uploader3"
                         />
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-xs-12">
                         <img ng-src="{{vm.detail.company.map}}" alt="配图预览" class="img-responsive">
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-xs-12">
                         <div class="table-responsive padding-0">
                             <table class="table">
                                 <thead>

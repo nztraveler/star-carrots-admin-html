@@ -1,42 +1,64 @@
 <div>
-    <div >
+    <div  class="border" ng-if="!vm.searchParams.companyId">
         <div class="">
             <div class="pull-left search-margin">
-                <span class="">在招职位</span>
+                <span class="">在招职位:</span>
                 <input type="text"  ng-model="vm.searchParams.companyName">
             </div>
             <div class="pull-left search-margin">
-                <span class="">职位名称</span>
+                <span class="">职位名称:</span>
                 <input type="text"  ng-model="vm.searchParams.name">
             </div>
 
             <div class="pull-left search-margin ">
-                <span class="">工作经验</span>
+                <span class="">工作经验:</span>
                 <select ng-model="vm.searchParams.experience"  ng-options=" x for (x, y) in vm.ProfessionConstant.experience2" ></select>
-                <!--<input ng-model="vm.status"/>-->
             </div>
 
-        发布时间
-
+            <div class="pull-left search-margin" >
+                <span >创建时间:</span >
+                <bs-picker></bs-picker>
+            </div>
 
             <div class="pull-left search-margin ">
-                <span class="">学历要求</span>
+                <span class="">学历要求:</span>
                 <select ng-model="vm.searchParams.education" ng-options=" x for (x, y) in vm.ProfessionConstant.education2" ></select>
             </div>
 
+<!--职业类别，二级联动-->
             <div class="pull-left search-margin ">
-                <span class="">职业类别</span>
-                <select ng-model="vm.searchParams.category" ng-options=" x for (x, y) in vm.companyListConstant.financing2" ></select>
-                职业子类
+                <span class="">职业类别:</span>
+                <span class="vertical-middle">
+                    <select class="form-control" ng-model="vm.searchParams.category"
+                            ng-change="vm.subCategoryFn(vm.searchParams.category)" required>
+                        <option value="">请选择</option>
+                        <option ng-repeat="item in vm.categoryData track by $index"  ng-value="item .id"
+                                ng-selected="item .id == vm.searchParams.category">
+                            {{item.name}}
+                        </option>
+                    </select>
+<!--<input type="text" ng-model="vm.searchParams.category">-->
+                </span>
+                <label class="control-label vertical-middle">—</label>
+                <span class="vertical-middle">
+                    <select class="form-control" ng-model="vm.searchParams.subCategory" required>
+                        <option value="">请选择</option>
+                          <option ng-repeat="a in vm.subCategoryData track by $index"  ng-value="a .id"
+                                  ng-selected="a .id == vm.searchParams.subCategory">
+                            {{a.name}}
+                        </option>
+                    </select>
+                    <!--<input ng-model="vm.searchParams.subCategory">-->
+                </span>
             </div>
 
             <div class="pull-left search-margin ">
-                <span class="">薪 资</span>
+                <span class="">薪&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp资:</span>
                 <select ng-model="vm.searchParams.compensation" ng-options=" x for (x, y) in vm.ProfessionConstant.compensation2" ></select>
             </div>
 
             <div class="pull-left search-margin ">
-                <span class="">状态</span>
+                <span class="">状&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp态:</span>
                 <select ng-model="vm.searchParams.status">
                     <option value="">全部</option>
                     <option value="0">未认证</option>
@@ -46,12 +68,66 @@
             </div>
 
         </div>
-
-        <div class="pull-right">
+        <div class="pull-right margin-10-tb">
             <button ng-click="vm.clear()" type="button" class="btn btn-warning">清空</button>
             <button ng-click="vm.search()" type="button" class="btn btn-primary">搜索</button>
         </div>
         <div class="clear"></div>
     </div>
+<div ng-if="vm.searchParams.companyId"  class="pull-right">
+    <button ui-sref="field.positionDetail({companyId:vm.searchParams.companyId,companyName:vm.searchParams.companyName})" type="button" class="btn btn-primary">新增</button>
+</div>
+    <!--表格开始-->
+    <div >
+        <!--<button class="pull-right btn btn-primary"  ui-sref="field.companyDetail" type="button">新增</button>-->
+        <table class="table table-hover table-bordered table-condensed text-center" id="table-customized">
+            <thead >
+            <th>序号</th>
+            <th>在招公司</th>
+            <th>职位名称</th>
+            <th>职业类别</th>
+            <th>薪资</th>
+            <th>学历要求</th>
+            <th>工作经验</th>
+            <th>发布时间</th>
+            <th>状态</th>
+            <th>操作</th>
+            </thead>
+
+            <!--表格内容通过ng-repeat自动生成-->
+            <tbody>
+            <tr ng-repeat="x in vm.list track by $index">
+                <!--获取数组下标生成序号-->
+                <td>{{$index + 1}}</td>
+                <td>{{x.companyName}}</td>
+                <td> {{x.name}}</td>
+                <td> {{x.category|position:'category'}}</td>
+                <td>{{x.compensation|position:'compensation'}}</td>
+                <td>{{x.education|position:'education'}}</td>
+                <td>{{x.experience|position:'experience'}}</td>
+                <td>{{x.updateAt|date:"yyyy-MM-dd"}}</td>
+                <td>{{x.status|position:'status'}}</td>
+                <td>
+                    <button ng-click="vm.changePositionStatus(x.id,x.status)"class="btn btn-warning">{{x.status|position:'status2'}}</button>
+                    <button ui-sref="field.positionDetail({id:x.id,companyId:x.companyId,companyName:x.companyName})" class="btn btn-primary">编辑</button>
+                    <button ng-click="vm.delPosition(x.id)"class="btn  btn-danger">删除</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <!--ui-bootstrap分页-->
+        <nav class="pull-right">
+            <ul class="pagination-sm" uib-pagination total-items="vm.num" ng-model="vm.param.page"
+                max-size="vm.maxSize" items-per-page="vm.maxPerPage" boundary-links="true" force-ellipses="true"
+                previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;">
+            </ul>
+            <!--<div>{{vm.article.page}}</div>-->
+        </nav>
+
+    </div>
+
+
+
 
 </div>

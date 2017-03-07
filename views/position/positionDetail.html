@@ -1,0 +1,116 @@
+<div>
+    <form name="myform" novalidate>
+    <div class="panel panel-default">
+        <div class="panel-heading overflow">
+            <span class="pull-left">{{vm.params.name}}职业详细信息</span>
+            <div class="pull-right">
+                <span>*</span>
+                <select
+                        ng-model="vm.params.recommend" required>
+                    <option value="">请选择</option>
+                    <option value=0>普通</option>
+                    <option value=1>推荐</option>
+                </select>
+            </div>
+
+        </div>
+        <div class="panel-body" >
+            <!--详细信息区域-->
+            <div class="panel-body">
+                <div class="pull-left search-margin">
+                    <label class="">*职位名称</label>
+                    <input type="text"  ng-model="vm.params.name" required>
+                </div>
+                <div class="pull-left search-margin">
+                    <label class="">在招公司</label>
+                    <select disabled>
+                        <option value="">{{vm.params.companyName}}</option>
+                        </select>
+                </div>
+
+                <div class="pull-left search-margin">
+                    <label class="">*工作经验</label>
+                    <select ng-model="vm.params.experience"  ng-options=" x for (x, y) in vm.ProfessionConstant.experience2" required></select>
+                </div>
+
+                <div class="pull-left search-margin" >
+                    <label class="">*学历要求</label>
+                    <select ng-model="vm.params.education" ng-options=" x for (x, y) in vm.ProfessionConstant.education2" required></select>
+                </div>
+
+                <div class="pull-left search-margin" >
+                    <label class="">*薪 资</label>
+                    <select ng-model="vm.params.compensation" ng-options=" x for (x, y) in vm.ProfessionConstant.compensation2" required></select>
+                </div>
+                <!--职业类别，二级联动-->
+                <div class="pull-left search-margin ">
+                    <span class="">*职业类别</span>
+                    <span class="vertical-middle">
+                    <select class="form-control" ng-model="vm.params.category"
+                            ng-change="vm.subCategoryFn(vm.params.category)" required>
+                        <option value="">请选择</option>
+                        <option ng-repeat="item in vm.categoryData track by $index" value="{{item.id}}">
+                            {{item.name}}
+                        </option>
+                    </select>
+<!--<input type="text" ng-model="vm.searchParams.category">-->
+                </span>
+                    <label class="control-label vertical-middle">—</label>
+                    <span class="vertical-middle">
+                    <select class="form-control" ng-model="vm.params.subCategory" required
+                            ng-options="a.id as a.name  for a in vm.subCategoryData ">
+                        <option value="">请选择</option>
+                    </select>
+                </span>
+                </div>
+<!--公司福利-->
+                <div class="pull-left search-margin">
+                        <label class="control-label " ng-if="vm.Multiselect.length!==0">公司福利</label>
+                        <div class="">
+                            <label ng-repeat="li in  vm.Multiselect track by $index"
+                                   class="control-label k margin-10 vertical-middle">
+                                <input type="checkbox" name="li.name" ng-checked="li.check"
+                                       class="vertical-middle "
+                                       ng-click="vm.checkboxMulti(li.name,vm.positionTags)">
+                                <span class="label-info label vertical-middle ">{{li.name}}</span>
+                            </label>
+                        </div>
+                    </div>
+<!--公司福利END-->
+
+            </div>
+
+            <!--公司产品区域-->
+            <div class="panel panel-default">
+                <div class="panel-heading">职位描述</div>
+                <div class="panel-body">
+                    <div class="col-xs-12 search-margin">
+                        <label class="col-xs-2">*岗位职责</label>
+                        <textarea type="text" class="col-xs-10" ng-model="vm.params.responsibility" rows="6" maxlength="1000"required></textarea>
+                    </div>
+
+                    <div class="col-xs-12 search-margin">
+                        <label class="col-xs-2">*必备条件</label>
+                        <textarea type="text" class="col-xs-10" ng-model="vm.params.requisite" rows="6" maxlength="1000" required></textarea>
+                    </div>
+
+                    <div class="col-xs-12 search-margin">
+                        <label class="col-xs-2">*公司福利</label>
+                        <textarea type="text" class="col-xs-10" ng-model="vm.params.boon" rows="6" maxlength="1000" required></textarea>
+                    </div>
+                </div>
+
+                <div class="pull-right margin-10-tb">
+                    <button type="button" class="btn btn-success"
+                            ng-disabled="!myform.$valid"
+                            ng-click="vm.save()">保存
+                    </button>
+                    <button type="button" class="btn btn-default " ui-sref="field.positionList">取消</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</form>
+</div>
