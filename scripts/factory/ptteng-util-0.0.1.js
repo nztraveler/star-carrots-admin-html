@@ -6,6 +6,11 @@ angular.module('admin')
         return {
             pageDefault: {page: 1, size: 10, next: true},
 
+            //跳转界面位置
+            scrollTo: function (x, y) {
+                window.scrollTo(x, y);
+            },
+
             //搜索
             search: function (param) {
                 $state.go($state.current, param, {reload: true})

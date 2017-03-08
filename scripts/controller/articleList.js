@@ -2,9 +2,9 @@
  * Created by CT on 2017/2/22.
  */
 'use strict';
-    angular.module('admin').controller('articleList',['articleConstant','$http','$scope','$rootScope','$state','$stateParams','ArticleManagementService',articleSearch ]);
+    angular.module('admin').controller('articleList',['articleConstant','$http','$scope','$rootScope','$state','$stateParams','ArticleManagementService','commonUtil',articleSearch ]);
 
-function articleSearch(articleConstant,$http,$scope,$rootScope,$state,$stateParams,ArticleManagementService){//这里注入的东西，一定要和[]里的完全一样，不然会报错
+function articleSearch(articleConstant,$http,$scope,$rootScope,$state,$stateParams,ArticleManagementService,commonUtil){//这里注入的东西，一定要和[]里的完全一样，不然会报错
     var vm = this ;
     vm.articleConstant = articleConstant;//注入搜索参数
     vm.articleSearch = $state.params;// 搜索参数
@@ -79,6 +79,8 @@ function articleSearch(articleConstant,$http,$scope,$rootScope,$state,$statePara
             }
         ).then(function (res) {
             $state.go('.', vm.article);//以新url参数刷新页面,必须要先请求ajax，再生效跳转，不然url的page参数会一直改变。
+            // 跳转到本页面保持顶部
+            commonUtil.scrollTo(0, 0);
         });
 
     });

@@ -81,6 +81,8 @@ function companySearch(companyListConstant,articleConstant,$http,$scope,$rootSco
             }
         ).then(function (res) {
             $state.go('.', vm.param);//以新url参数刷新页面,必须要先请求ajax，再生效跳转，不然url的page参数会一直改变。
+            // 跳转到本页面保持顶部
+            commonUtil.scrollTo(0, 0);
         });
     });
 
