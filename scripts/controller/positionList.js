@@ -156,7 +156,7 @@ function positionSearch($http,$scope,$rootScope,$state,$stateParams,infoManageme
         else if (status === 1) {
             $rootScope.operationConfirm("下架后该职位将不在前台展示。", "是否执行下架操作？", function () {
                 // 发送下线请求
-                infoManagementService.putPositionstatus(id, 1).then(function (res) {
+                infoManagementService.putPositionstatus(id, 0).then(function (res) {
                     if (res.data.code === 0) {
 
                         $rootScope.alert("已成功下架", function () {
