@@ -58,6 +58,7 @@ angular.module('admin')
         }
         // 新增
         else {
+            vm.params ={};
             if(vm.params.type== undefined){
                 vm.params.type = null;
             };
