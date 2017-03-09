@@ -1,117 +1,150 @@
 <!--类型搜索-->
 <div>
-    <div class="border">
-        <div class="">
-            <div class="pull-left search-margin">
-                <span class="">公司名称: </span>
-                <input type="text"  ng-model="vm.company.name">
-            </div>
-            <div class="pull-left search-margin">
-                <span class="">产品名称: </span>
-                <input type="text"  ng-model="vm.company.product">
-            </div>
+    <div class="form-horizontal">
+        <div class="panel panel-default">
+            <!--搜索框-->
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label col-md-4">公司名称:</label>
+                            <div class="col-md-8">
+                                <input class="form-control" type="text"  ng-model="vm.company.name">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label col-md-4">产品名称:</label>
+                            <div class="col-md-8">
+                                <input class="form-control" type="text"  ng-model="vm.company.product">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label col-md-4">公司行业:</label>
+                            <div class="col-md-8">
+                                <select class="form-control" ng-model="vm.company.industry">
+                                    <option value="">全部 </option>
+                                    <option ng-repeat="x in vm.articleConstant.industry" ng-value="x.type" ng-selected="x.type == vm.company.industry">{{x.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-            <div class="pull-left search-margin ">
-                <span class="">公司行业: </span>
-                <select ng-model="vm.company.industry">
-                    <option value="">全部 </option>
-                    <option ng-repeat="x in vm.articleConstant.industry" ng-value="x.type" ng-selected="x.type == vm.company.industry">{{x.name}}</option>
-                </select>
-                <!--<input ng-model="vm.status"/>-->
-            </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label col-md-4">融资规模:</label>
+                            <div class="col-md-8">
+                                <select class="form-control" ng-model="vm.company.financing" >
+                                    <option value=""> 全部 </option>
+                                    <option ng-repeat="x in vm.companyListConstant.financing" ng-value="x.type" ng-selected="x.type == vm.company.financing">{{x.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label col-md-4">认证状态:</label>
+                            <div class="col-md-8">
+                                <select class="form-control" ng-model="vm.company.approved">
+                                    <option value="">全部</option>
+                                    <option value="0">未认证</option>
+                                    <option value="1">已认证</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label col-md-4">冻结状态:</label>
+                            <div class="col-md-8">
+                                <select class="form-control" ng-model="vm.company.freezed">
+                                    <option value="">全部</option>
+                                    <option value="0">正常</option>
+                                    <option value="1">冻结</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-            <div class="pull-left search-margin ">
-                <span class="">地&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp区: </span>
-                <city-select select-result="vm.company.address"></city-select>
-                <!--<input text="number" ng-model="vm.company.address.province">-->
-                <!--<input text="number" ng-model="vm.company.address.city">-->
-                <!--<input text="number" ng-model="vm.company.address.district">-->
-                <!--{{vm.company.address}}-->
-                <!--<input ng-model="vm.status"/>-->
-            </div>
+                <!--地区选择-->
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <label class="control-label col-md-2 word-spacing-25">地 区:</label>
+                            <div class="col-md-10">
+                                <city-select select-result="vm.company.address"></city-select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-            <div class="pull-left search-margin ">
-                <span class="">融资规模: </span>
-                <select ng-model="vm.company.financing" >
-                    <option value=""> 全部 </option>
-                    <option ng-repeat="x in vm.companyListConstant.financing" ng-value="x.type" ng-selected="x.type == vm.company.financing">{{x.name}}</option>
-                </select>
-                <!--<input ng-model="vm.status"/>-->
-            </div>
+                <div class="row">
+                    <div class="col-md-12 text-right ">
+                        <button ng-click="vm.clear()" type="button" class="btn btn-warning">清空</button>
+                        <button ng-click="vm.search()" type="button" class="btn btn-primary">搜索</button>
+                    </div>
+                </div>
 
-            <div class="pull-left search-margin ">
-                <span class="">认证状态: </span>
-                <select ng-model="vm.company.approved">
-                    <option value="">全部</option>
-                    <option value="0">未认证</option>
-                    <option value="1">已认证</option>
-                </select>
-                <!--<input ng-model="vm.status"/>-->
-            </div>
-
-
-            <div class="pull-left search-margin">
-                <span class="">冻结状态: </span>
-                <select ng-model="vm.company.freezed">
-                    <option value="">全部</option>
-                    <option value="0">正常</option>
-                    <option value="1">冻结</option>
-                </select>
             </div>
         </div>
-
-        <div class="pull-right margin-10-tb">
-            <button ng-click="vm.clear()" type="button" class="btn btn-warning">清空</button>
-            <button ng-click="vm.search()" type="button" class="btn btn-primary">搜索</button>
-        </div>
-        <div class="clear"></div>
     </div>
 
     <!--表格开始-->
-    <div >
-        <button class="pull-right btn btn-primary margin-10-tb"  ui-sref="field.companyDetail" type="button">新增</button>
-        <table class="table table-hover table-bordered table-condensed text-center" id="table-customized">
-            <thead >
-            <th>序号</th>
-            <th>公司名称</th>
-            <th>公司行业</th>
-            <th>地区</th>
-            <th>融资规模</th>
-            <th>认证状态</th>
-            <th>冻结状态</th>
-            <th>操作</th>
-            </thead>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <strong>公司列表</strong>
+            <button class="pull-right btn btn-primary btn-xs"  ui-sref="field.companyDetail" type="button">新增</button>
+        </div>
 
-            <!--表格内容通过ng-repeat自动生成-->
-            <tbody>
-            <tr ng-repeat="x in vm.list track by $index">
-                <!--获取数组下标生成序号-->
-                <td>{{$index + 1}}</td>
-                <td>{{x.name}} </td>
-                <td> {{x.industryList[0]|Company:'industry'}}</td>
-                <td> {{x.city|cityFilter}}{{x.county|countyFilter}}</td>
-                <td>{{x.financing|Company:'financing'}}</td>
-                <td>{{x.approved|Company:'approved'}}</td>
-                <td>{{x.freezed|Company:'freezed'}}</td>
-                <td>
-                    <button ui-sref="field.positionList({companyId:x.id,companyName:x.name})" class="btn btn-primary">职位</button>
-                    <button ng-click="vm.approve(x.id,1, x.approved)"class="btn btn-primary">{{x.approved|changeApprovedStatusFilter}}</button>
-                    <button class="btn btn-primary" ng-click="vm.companyDetail(x.id)">编辑</button>
-                    <button ng-click="vm.freeze(x.id,0, x.freezed)"class="btn btn-danger">{{x.freezed|changeFreezedStatusFilter}}</button>
-                    <button ng-click="vm.delCompany(x.id)"class="btn btn-danger">删除</button>
-                </td>
-            </tr>
-            </tbody>
-        </table>
+        <div class="panel-body">
+            <table class="table table-hover table-bordered table-condensed text-center" id="table-customized">
+                <thead >
+                <th>序号</th>
+                <th>公司名称</th>
+                <th>公司行业</th>
+                <th>地区</th>
+                <th>融资规模</th>
+                <th>认证状态</th>
+                <th>冻结状态</th>
+                <th>操作</th>
+                </thead>
 
-        <!--ui-bootstrap分页-->
-        <nav class="pull-right">
-            <ul class="pagination-sm" uib-pagination total-items="vm.num" ng-model="vm.param.page"
-                max-size="vm.maxSize" items-per-page="vm.maxPerPage" boundary-links="true" force-ellipses="true"
-                previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;">
-            </ul>
-            <!--<div>{{vm.article.page}}</div>-->
-        </nav>
-
+                <!--表格内容通过ng-repeat自动生成-->
+                <tbody>
+                <tr ng-repeat="x in vm.list track by $index">
+                    <!--获取数组下标生成序号-->
+                    <td>{{$index + 1}}</td>
+                    <td>{{x.name}} </td>
+                    <td> {{x.industryList[0]|Company:'industry'}}</td>
+                    <td> {{x.city|cityFilter}}{{x.county|countyFilter}}</td>
+                    <td>{{x.financing|Company:'financing'}}</td>
+                    <td>{{x.approved|Company:'approved'}}</td>
+                    <td>{{x.freezed|Company:'freezed'}}</td>
+                    <td>
+                        <button ui-sref="field.positionList({companyId:x.id,companyName:x.name})" class="btn btn-primary">职位</button>
+                        <button ng-click="vm.approve(x.id,1, x.approved)"class="btn btn-primary">{{x.approved|changeApprovedStatusFilter}}</button>
+                        <button class="btn btn-primary" ng-click="vm.companyDetail(x.id)">编辑</button>
+                        <button ng-click="vm.freeze(x.id,0, x.freezed)"class="btn btn-danger">{{x.freezed|changeFreezedStatusFilter}}</button>
+                        <button ng-click="vm.delCompany(x.id)"class="btn btn-danger">删除</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <!--ui-bootstrap分页-->
+            <nav class="pull-right">
+                <ul class="pagination-sm" uib-pagination total-items="vm.num" ng-model="vm.param.page"
+                    max-size="vm.maxSize" items-per-page="vm.maxPerPage" boundary-links="true" force-ellipses="true"
+                    previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;">
+                </ul>
+                <!--<div>{{vm.article.page}}</div>-->
+            </nav>
+        </div>
     </div>
+
 </div>

@@ -66,11 +66,10 @@ ol, ul, li {
     position: relative;
 }
 /*表单样式*/
-select{
-    height: 26px !important;
-    padding: 0!important;
-
-}
+/*select{*/
+    /*height: 26px !important;*/
+    /*padding: 0!important;*/
+/*}*/
 select[disabled]{
     cursor: not-allowed;
     background-color: #eee;
@@ -81,10 +80,10 @@ button[disabled]{
     pointer-events: inherit !important;
 }
 
-.multiSelect > button {
-     height: 26px !important;
-     min-height: 26px !important;
-}
+/*.multiSelect > button {*/
+     /*height: 26px !important;*/
+     /*min-height: 26px !important;*/
+/*}*/
 /*地区选择*/
 @media only screen and (min-width: 540px){
     .col-my-4{
@@ -194,6 +193,10 @@ button[disabled]{
 }
 .pd-r-0{
     padding-right: 0;
+}
+.padding-0{
+    padding-right: 0;
+    padding-left: 0;
 }
 .pd-top-bottom-10 {
     padding-top: 10px;

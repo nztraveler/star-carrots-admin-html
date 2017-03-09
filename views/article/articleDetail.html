@@ -1,114 +1,119 @@
 <div class="panel panel-default">
     <div class="panel-heading">新增/编辑</div>
-    <form class="panel-body" name="myform">
-        <div class=" search-margin" >
-            <label class=""><span class="red">*</span>类&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp型</label>
-            <select ng-model="vm.params.type" required>
-                <option value="">请选择</option>
-                <option ng-repeat="x in vm.articleConstant.type" ng-value="x.type" ng-selected="x.type == vm.params.type">{{x.name}}</option>
-            </select>
-            <select ng-if="vm.params.type==3" ng-model="vm.params.industry"  required>
-                <option value="">请选择</option>
-                <option ng-repeat="x in vm.articleConstant.industry" ng-value="x.type" ng-selected="x.type == vm.params.industry">{{x.name}}</option>
-            </select>
-        </div>
-        <div class=" search-margin">
-            <label class=""><span class="red">*</span>标题名称</label>
-            <input type="text"  ng-model="vm.params.title" required>
-        </div>
-        <div class=" search-margin" ng-if="vm.params.type!==3">
-            <lable class="bold"><span class="red">*</span>跳转链接</lable>
-            <input type="text"  ng-model="vm.params.url" required>
-        </div>
+    <div class="panel-body">
+        <form class="form-horizontal" name="myform">
+            <div class="form-group row">
+                <label class="col-md-2 control-label"><span class="red">*</span>类&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp型</label>
+                <div class="col-md-8">
+                    <select class="form-control" ng-model="vm.params.type" required>
+                        <option value="">请选择</option>
+                        <option ng-repeat="x in vm.articleConstant.type" ng-value="x.type" ng-selected="x.type == vm.params.type">{{x.name}}</option>
+                    </select>
+                    <select class="form-control" ng-if="vm.params.type==3" ng-model="vm.params.industry"  required>
+                        <option value="">请选择</option>
+                        <option ng-repeat="x in vm.articleConstant.industry" ng-value="x.type" ng-selected="x.type == vm.params.industry">{{x.name}}</option>
+                    </select>
+                </div>
+            </div>
 
-        <!--公司logo-->
-        <div class="row form-group">
-            <div class="clear"></div>
-            <label class="col-md-2 control-label word-spacing-25"><span class="col-md-12"><span class="red">*</span>配&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp图</span></label>
-            <div class="col-md-10 padding-0">
-                <div class="col-md-12 ">
-                    <label class="btn btn-primary" for="file2">选择文件</label>
-                    <input id="file2"
-                           style="display: none"
-                           type="file"
-                           nv-file-select
-                           uploader="vm.uploader1"
-                           required
-                    />
+            <div class="form-group row">
+                <label class="col-md-2 control-label word-spacing-25"><span class="red">*</span>标题名称</label>
+                <div class="col-md-2">
+                    <input class="form-control" type="text"  ng-model="vm.params.title" required>
                 </div>
-                <div class="col-md-12">
-                    <img ng-src="{{vm.params.img}}" alt="配图预览" class="img-responsive">
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label word-spacing-25"><span class="red">*</span>跳转链接</label>
+                <div class="col-md-2">
+                    <input class="form-control" type="text"  ng-model="vm.params.url" required>
                 </div>
-                <div class="col-md-12">
-                    <div class="table-responsive  padding-0">
-                        <table class="table">
-                            <thead>
-                            <th>图片名</th>
-                            <th>文件大小</th>
-                            <th>进度</th>
-                            <th>操作</th>
-                            <th>操作</th>
-                            </thead>
-                            <tbody>
-                            <tr ng-repeat="item in vm.uploader1.queue track by $index" class="ng-scope"
-                                ng-if="$first">
-                                <td><strong class="ng-binding">{{item.file.name}}</strong></td>
-                                <td ng-show="vm.uploader1.isHTML5" nowrap="" class="ng-binding">{{
-                                    item.file.size/1024/1024 | number:2 }} MB
-                                </td>
-                                <td ng-show="vm.uploader1.isHTML5">
-                                    <div class="progress" style="margin-bottom: 0;">
-                                        <div class="progress-bar" role="progressbar"
-                                             ng-style="{ 'width': item.progress + '%' }"></div>
-                                    </div>
-                                </td>
-                                <td class="text-center">
+            </div>
+            <div class="row form-group">
+                <label class="col-md-2 control-label word-spacing-25"><span class="red">*</span>配 图</label>
+                <div class="col-md-10 padding-0">
+                    <div class="col-md-12 ">
+                        <label class="btn btn-primary" for="file2">选择文件</label>
+                        <input id="file2"
+                               style="display: none"
+                               type="file"
+                               nv-file-select
+                               uploader="vm.uploader1"
+                               required
+                        />
+                        <span class="col-md-12 " ng-show="!vm.params.img" class="red">　请上传一张图片</span>
+                    </div>
+                    <div class="col-md-12">
+                        <img ng-src="{{vm.params.img}}" alt="配图预览" class="img-responsive">
+                    </div>
+                    <div class="col-md-12">
+                        <div class="table-responsive  padding-0">
+                            <table class="table">
+                                <thead>
+                                <th>图片名</th>
+                                <th>文件大小</th>
+                                <th>进度</th>
+                                <th>操作</th>
+                                <th>操作</th>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="item in vm.uploader1.queue track by $index" class="ng-scope"
+                                    ng-if="$first">
+                                    <td><strong class="ng-binding">{{item.file.name}}</strong></td>
+                                    <td ng-show="vm.uploader1.isHTML5" nowrap="" class="ng-binding">{{
+                                        item.file.size/1024/1024 | number:2 }} MB
+                                    </td>
+                                    <td ng-show="vm.uploader1.isHTML5">
+                                        <div class="progress" style="margin-bottom: 0;">
+                                            <div class="progress-bar" role="progressbar"
+                                                 ng-style="{ 'width': item.progress + '%' }"></div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
                                                 <span ng-show="item.isSuccess"><i
                                                         class="glyphicon glyphicon-ok"></i></span>
-                                    <span ng-show="item.isCancel"><i
-                                            class="glyphicon glyphicon-ban-circle"></i></span>
-                                    <span ng-show="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
-                                </td>
-                                <td nowrap="">
-                                    <button type="button" class="btn btn-success btn-xs"
-                                            ng-click="item.upload()"
-                                            ng-disabled="item.isReady || item.isUploading || item.isSuccess">
-                                        <span class="glyphicon glyphicon-upload"></span> 上传
-                                    </button>
-                                    <button type="button" class="btn btn-danger btn-xs"
-                                            ng-click="item.remove(); vm.clearImg()">
-                                        <span class="glyphicon glyphicon-trash"></span> 删除
-                                    </button>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
+                                        <span ng-show="item.isCancel"><i
+                                                class="glyphicon glyphicon-ban-circle"></i></span>
+                                        <span ng-show="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
+                                    </td>
+                                    <td nowrap="">
+                                        <button type="button" class="btn btn-success btn-xs"
+                                                ng-click="item.upload()"
+                                                ng-disabled="item.isReady || item.isUploading || item.isSuccess">
+                                            <span class="glyphicon glyphicon-upload"></span> 上传
+                                        </button>
+                                        <button type="button" class="btn btn-danger btn-xs"
+                                                ng-click="item.remove(); vm.clearImg()">
+                                            <span class="glyphicon glyphicon-trash"></span> 删除
+                                        </button>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
+
             </div>
-        </div>
-        <span ng-show="!vm.params.img" class="red">　请上传一张图片</span>
-        <!--公司logoend-->
-        <div class="form-group">
-            <div class="col-md-2">
-            </div>
-            <div class="col-md-8">
-                <button type="button" class="btn btn-success" ng-click="vm.pubArticle() "
-                        ng-disabled="!myform.$valid||vm.params.img==undefined">立即上线
-                </button>
-                <button type="button" class="btn btn-success" ng-click="vm.saveArticle()"
-                        ng-disabled="!myform.$valid||vm.params.img==undefined">存为草稿
-                </button>
-                <!--<span class="text-red" ng-show="!vm.vaidShow">请补全信息</span>-->
-                <button type="button" class="btn btn-default pull-right" ui-sref="field.articleList">取消</button>
-            </div>
-            <div class="red col-xs-12">
-                <div ng-messages="myform.$error">
-                    <div ng-message="required">*号为必填项，需填写后提交</div>
+            <div class="form-group">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <button type="button" class="btn btn-success" ng-click="vm.pubArticle() "
+                            ng-disabled="!myform.$valid||vm.params.img==undefined">立即上线
+                    </button>
+                    <button type="button" class="btn btn-success" ng-click="vm.saveArticle()"
+                            ng-disabled="!myform.$valid||vm.params.img==undefined">存为草稿
+                    </button>
+                    <button type="button" class="btn btn-default pull-right" ui-sref="field.articleList">取消</button>
+                    <div class="red col-xs-12">
+                        <div ng-messages="myform.$error">
+                            <div ng-message="required">*号为必填项，需填写后提交</div>
+                        </div>
+                    </div>
                 </div>
+
             </div>
-        </div>
 
 
     </form>
+        </div>
 </div>

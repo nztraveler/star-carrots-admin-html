@@ -1,40 +1,89 @@
 <div>
-    <div  class="border" ng-if="!vm.searchParams.companyId">
-        <div class="">
-            <div class="pull-left search-margin">
-                <span class="">在招公司:</span>
-                <input type="text"  ng-model="vm.searchParams.companyName">
-            </div>
-            <div class="pull-left search-margin">
-                <span class="">职位名称:</span>
-                <input type="text"  ng-model="vm.searchParams.name">
-            </div>
+    <div  class="panel panel-default" ng-if="!vm.searchParams.companyId">
+        <form class="form-horizontal">
+            <div class="panel-body">
+                <div class="row pd-bottom-2">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">在招公司</label>
+                            <div class="col-md-8">
+                                <input type="text"  ng-model="vm.searchParams.companyName">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label col-md-4">职位名称</label>
+                            <div class="col-md-8">
+                                <input type="text"  ng-model="vm.searchParams.name">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label col-md-4">工作经验</label>
+                            <div class="col-md-8">
+                                <select ng-model="vm.searchParams.experience">
+                                    <option value=""> 全部 </option>
+                                    <option ng-repeat="x in vm.ProfessionConstant.experience" ng-value="x.type" ng-selected="x.type == vm.searchParams.experience">{{x.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row pd-bottom-2">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">学历要求</label>
+                            <div class="col-md-8">
+                                <select ng-model="vm.searchParams.education">
+                                    <option value=""> 全部 </option>
+                                    <option ng-repeat="x in vm.ProfessionConstant.education" ng-value="x.type" ng-selected="x.type == vm.searchParams.education">{{x.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label col-md-4">薪资</label>
+                            <div class="col-md-8">
+                                <select ng-model="vm.searchParams.compensation">
+                                    <option value=""> 全部 </option>
+                                    <option ng-repeat="x in vm.ProfessionConstant.compensation" ng-value="x.type" ng-selected="x.type == vm.searchParams.compensation">{{x.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label col-md-4">状态</label>
+                            <div class="col-md-8">
+                                <select ng-model="vm.searchParams.status">
+                                    <option value="">全部</option>
+                                    <option value="1">上架</option>
+                                    <option value="0">下架</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row pd-bottom-2">
+                    <div class="col-md-10">
+                        <div class="form-group">
+                            <label class="control-label col-md-2">创建时间</label>
+                            <div class="col-md-10">
+                                <bs-picker></bs-picker>
+                            </div>
+                        </div>
+                    </div>
 
-            <div class="pull-left search-margin ">
-                <span class="">工作经验:</span>
-                <select ng-model="vm.searchParams.experience">
-                    <option value=""> 全部 </option>
-                    <option ng-repeat="x in vm.ProfessionConstant.experience" ng-value="x.type" ng-selected="x.type == vm.searchParams.experience">{{x.name}}</option>
-                </select>
-            </div>
-
-            <div class="pull-left search-margin" >
-                <span >创建时间:</span >
-                <bs-picker></bs-picker>
-            </div>
-
-            <div class="pull-left search-margin ">
-                <span class="">学历要求:</span>
-                <select ng-model="vm.searchParams.education">
-                    <option value=""> 全部 </option>
-                    <option ng-repeat="x in vm.ProfessionConstant.education" ng-value="x.type" ng-selected="x.type == vm.searchParams.education">{{x.name}}</option>
-                </select>
-            </div>
-
-<!--职业类别，二级联动-->
-            <div class="pull-left search-margin ">
-                <span class="">职业类别:</span>
-                <span class="vertical-middle">
+                </div>
+                <div class="row pd-bottom-2">
+                    <div class="col-md-10">
+                        <div class="form-group">
+                            <label class="control-label col-md-2">职业类别</label>
+                            <div class="col-md-10">
+                                  <span class="vertical-middle">
                     <select class="form-control" ng-model="vm.searchParams.category"
                             ng-change="vm.subCategoryFn(vm.searchParams.category)" required>
                         <option value="">请选择</option>
@@ -43,10 +92,10 @@
                             {{item.name}}
                         </option>
                     </select>
-<!--<input type="text" ng-model="vm.searchParams.category">-->
+                                      <!--<input type="text" ng-model="vm.searchParams.category">-->
                 </span>
-                <label class="control-label vertical-middle">—</label>
-                <span class="vertical-middle">
+                                <label class="control-label vertical-middle">—</label>
+                                <span class="vertical-middle">
                     <select class="form-control" ng-model="vm.searchParams.subCategory" required>
                         <option value="">请选择</option>
                           <option ng-repeat="a in vm.subCategoryData track by $index"  ng-value="a .id"
@@ -54,41 +103,36 @@
                             {{a.name}}
                         </option>
                     </select>
-                    <!--<input ng-model="vm.searchParams.subCategory">-->
+                                    <!--<input ng-model="vm.searchParams.subCategory">-->
                 </span>
-            </div>
+                            </div>
+                        </div>
+                    </div>
 
-            <div class="pull-left search-margin ">
-                <span class="">薪&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp资:</span>
-                <select ng-model="vm.searchParams.compensation">
-                    <option value=""> 全部 </option>
-                    <option ng-repeat="x in vm.ProfessionConstant.compensation" ng-value="x.type" ng-selected="x.type == vm.searchParams.compensation">{{x.name}}</option>
-                </select>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 text-right ">
+                        <button ng-click="vm.clear()" type="button" class="btn btn-warning">清空</button>
+                        <button ng-click="vm.search()" type="button" class="btn btn-primary">搜索</button>
+                    </div>
+                </div>
             </div>
+        </form>
 
-            <div class="pull-left search-margin ">
-                <span class="">状&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp态:</span>
-                <select ng-model="vm.searchParams.status">
-                    <option value="">全部</option>
-                    <option value="1">上架</option>
-                    <option value="0">下架</option>
-                </select>
-                <!--<input ng-model="vm.status"/>-->
-            </div>
-
-        </div>
-        <div class="pull-right margin-10-tb">
-            <button ng-click="vm.clear()" type="button" class="btn btn-warning">清空</button>
-            <button ng-click="vm.search()" type="button" class="btn btn-primary">搜索</button>
-        </div>
-        <div class="clear"></div>
     </div>
-<div ng-if="vm.searchParams.companyId"  class="pull-right">
-    <button ui-sref="field.positionDetail({companyId:vm.searchParams.companyId,companyName:vm.searchParams.companyName,n:false})" type="button" class="btn btn-primary">新增</button>
-</div>
+<!--<div ng-if="vm.searchParams.companyId"  class="pull-right">-->
+    <!--<button ui-sref="field.positionDetail({companyId:vm.searchParams.companyId,companyName:vm.searchParams.companyName,n:false})" type="button" class="btn btn-primary">新增</button>-->
+<!--</div>-->
     <!--表格开始-->
-    <div >
-        <!--<button class="pull-right btn btn-primary"  ui-sref="field.companyDetail" type="button">新增</button>-->
+    <div class="panel panel-default" >
+        <div class="panel-heading">
+            <div ng-if="vm.searchParams.companyId"  >
+                <strong>职位信息</strong>
+                <button class="pull-right btn btn-primary btn-xs" ui-sref="field.positionDetail({companyId:vm.searchParams.companyId,companyName:vm.searchParams.companyName,n:false})" type="button" class="btn btn-primary">新增</button>
+            </div>
+        </div>
+
+        <div class="panel-body">
         <table class="table table-hover table-bordered table-condensed text-center" id="table-customized">
             <thead >
             <th>序号</th>
@@ -133,9 +177,9 @@
             </ul>
             <!--<div>{{vm.article.page}}</div>-->
         </nav>
+            </div>
 
     </div>
-
 
 
 

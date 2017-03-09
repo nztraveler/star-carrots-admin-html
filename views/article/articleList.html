@@ -1,92 +1,123 @@
 <!--类型搜索-->
 <div>
-<div class="border">
-    <div class="">
-    <div class="pull-left search-margin">
-        <span class="">标     题</span>
-        <input type="text"  ng-model="vm.articleSearch.title">
-    </div>
-    <div class="pull-left search-margin">
-        <span class="">创 建 者</span>
-        <input type="text"  ng-model="vm.articleSearch.author">
-    </div>
-    <div class="pull-left search-margin" >
-        <span >创建时间</span >
-        <!--<time-picker  start-at="vm.article.startAt" end-at="vm.article.endAt" clear="vm.clear" ></time-picker>-->
-       <bs-picker></bs-picker>
-    </div>
+<div class="panel panel-default">
+    <form class="form-horizontal">
+        <div class="panel-body">
 
-    <div class="pull-left search-margin ">
-        <span class="">状     态</span>
-        <select ng-model="vm.articleSearch.status" >
-            <option value=""> 全部 </option>
-            <option ng-repeat="x in vm.articleConstant.status" ng-value="x.type" ng-selected="x.type == vm.articleSearch.status">{{x.name}}</option>
-        </select>
-
-        <!--<input ng-model="vm.status"/>-->
-    </div>
-
-    <div class="pull-left search-margin">
-        <span class="">类     型</span>
-        <select ng-model="vm.articleSearch.type" >
-            <option value=""> 全部 </option>
-            <option ng-repeat="x in vm.articleConstant.type" ng-value="x.type" ng-selected="x.type == vm.articleSearch.type">{{x.name}}</option>
-        </select>
-    </div>
-    </div>
-
-<div class="pull-right margin-10-tb">
-    <button ng-click="vm.clear()" type="button" class="btn btn-warning">清空</button>
-    <button ng-click="vm.search()" type="button" class="btn btn-primary">搜索</button>
-</div>
-<div class="clear"></div>
+            <div class="row pd-bottom-2">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label col-md-2">标     题</label>
+                        <div class="col-md-10">
+                            <input class="form-control" type="text"  ng-model="vm.articleSearch.title">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label col-md-2">创 建 者</label>
+                        <div class="col-md-10">
+                            <input class="form-control" type="text"  ng-model="vm.articleSearch.author">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row pd-bottom-2">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label col-md-2">状     态</label>
+                        <div class="col-md-10">
+                            <select class="form-control" ng-model="vm.articleSearch.status" >
+                                <option value=""> 全部 </option>
+                                <option ng-repeat="x in vm.articleConstant.status" ng-value="x.type" ng-selected="x.type == vm.articleSearch.status">{{x.name}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label col-md-2">类     型</label>
+                        <div class="col-md-10">
+                            <select class="form-control" ng-model="vm.articleSearch.type" >
+                                <option value=""> 全部 </option>
+                                <option ng-repeat="x in vm.articleConstant.type" ng-value="x.type" ng-selected="x.type == vm.articleSearch.type">{{x.name}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row pd-bottom-2">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="control-label col-md-1">创建时间</label>
+                        <div class="col-md-11">
+                            <bs-picker></bs-picker>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--按钮-->
+            <div class="row pd-bottom-2">
+                <div class="col-md-4 pull-right text-right">
+                    <button ng-click="vm.clear()" type="button" class="btn btn-warning">清空</button>
+                    <button ng-click="vm.search()" type="button" class="btn btn-primary">搜索</button>
+                </div>
+            </div>
+        </div>
+    </form>
 </div>
 
 <!--表格开始-->
-<div >
-    <button class="pull-right btn btn-primary margin-10-tb" ng-click="vm.articleDetail()" type="button">新增</button>
-    <table class="table table-hover table-bordered table-condensed text-center" id="table-customized">
-        <thead >
-        <th>序号</th>
-        <th>图片</th>
-        <th>标题</th>
-        <th>类型</th>
-        <th>创建者</th>
-        <th>创建时间</th>
-        <th>修改时间</th>
-        <th>状态</th>
-        <th>操作</th>
-        </thead>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <strong>Article列表</strong>
+        <button class="pull-right btn btn-primary btn-xs" ng-click="vm.articleDetail()" type="button">新增</button>
+    </div>
 
-        <!--表格内容通过ng-repeat自动生成-->
-        <tbody>
-        <tr ng-repeat="x in vm.list">
-            <!--获取数组下标生成序号-->
-            <td>{{$index + 1}}</td>
-            <td><img  class="width100" src="{{x.img}}"> </td>
-            <td> {{x.title}}</td>
-            <td> {{x|Article:'type'}}</td>
-            <td>{{x.author}}</td>
-            <td>{{x.createAt|date:"yyyy-MM-dd"}}</td>
-            <td>{{x.updateAt|date:"yyyy-MM-dd"}}</td>
-            <td>{{x|Article:'status'}}</td>
-            <td>
-                <button ng-click="vm.changeArticleStatus(x.id,x.status)"class="btn btn-warning">{{x.status|articleStatusChangeFilter}}</button>
-                <button ng-click="vm.articleDetail(x.id)"class="btn btn-primary">编辑</button>
-                <button ng-click="vm.delArticle(x.id)"class="btn  btn-danger">删除</button>
-            </td>
-        </tr>
-        </tbody>
-    </table>
 
-    <!--ui-bootstrap分页-->
-    <nav class="pull-right">
-        <ul class="pagination-sm" uib-pagination total-items="vm.num" ng-model="vm.article.page"
-            max-size="vm.maxSize" items-per-page="vm.maxPerPage" boundary-links="true" force-ellipses="true"
-            previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;">
-        </ul>
-        <!--<div>{{vm.article.page}}</div>-->
-    </nav>
+    <div class="panel-body">
+        <table class="table table-hover table-bordered table-condensed text-center" id="table-customized">
+            <thead >
+            <th>序号</th>
+            <th>图片</th>
+            <th>标题</th>
+            <th>类型</th>
+            <th>创建者</th>
+            <th>创建时间</th>
+            <th>修改时间</th>
+            <th>状态</th>
+            <th>操作</th>
+            </thead>
+
+            <!--表格内容通过ng-repeat自动生成-->
+            <tbody>
+            <tr ng-repeat="x in vm.list">
+                <!--获取数组下标生成序号-->
+                <td>{{$index + 1}}</td>
+                <td><img  class="width100" src="{{x.img}}"> </td>
+                <td> {{x.title}}</td>
+                <td> {{x|Article:'type'}}</td>
+                <td>{{x.author}}</td>
+                <td>{{x.createAt|date:"yyyy-MM-dd"}}</td>
+                <td>{{x.updateAt|date:"yyyy-MM-dd"}}</td>
+                <td>{{x|Article:'status'}}</td>
+                <td>
+                    <button ng-click="vm.changeArticleStatus(x.id,x.status)"class="btn btn-warning">{{x.status|articleStatusChangeFilter}}</button>
+                    <button ng-click="vm.articleDetail(x.id)"class="btn btn-primary">编辑</button>
+                    <button ng-click="vm.delArticle(x.id)"class="btn  btn-danger">删除</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <!--ui-bootstrap分页-->
+        <nav class="pull-right">
+            <ul class="pagination-sm" uib-pagination total-items="vm.num" ng-model="vm.article.page"
+                max-size="vm.maxSize" items-per-page="vm.maxPerPage" boundary-links="true" force-ellipses="true"
+                previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;">
+            </ul>
+            <!--<div>{{vm.article.page}}</div>-->
+        </nav>
+    </div>
 
 </div>
 </div>
