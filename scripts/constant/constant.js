@@ -12,28 +12,28 @@ angular.module('admin')
     })
     // article列表数据，高级写法
 .constant('articleConstant',{
-    'type2':{
-        // '全部': null,
-        '首页banner':0 ,
-        '找职位banner':1,
-        '找精英banner':2,
-        '行业大图':3
-    },
-    'status2': {
-        // '全部': null,
-        '上线':2 ,
-        '下线':1,
-    },
-    'industry2': {
-        // '不限': null,
-        '移动互联网':0 ,
-        '电子商务':1,
-        '企业服务':2,
-        'O2O':3,
-        '教育':4,
-        '金融':5,
-        '游戏':6
-    },
+    // 'type2':{
+    //     // '全部': null,
+    //     '首页banner':0 ,
+    //     '找职位banner':1,
+    //     '找精英banner':2,
+    //     '行业大图':3
+    // },
+    // 'status2': {
+    //     // '全部': null,
+    //     '上线':2 ,
+    //     '下线':1,
+    // },
+    // 'industry2': {
+    //     // '不限': null,
+    //     '移动互联网':0 ,
+    //     '电子商务':1,
+    //     '企业服务':2,
+    //     'O2O':3,
+    //     '教育':4,
+    //     '金融':5,
+    //     '游戏':6
+    // },
     'type':[
         // {type:'', name: '全部'},//参数为空时显示全部
         {type:0, name: '首页banner'},
@@ -81,16 +81,16 @@ angular.module('admin')
             {type: 5, name: 'D轮及以上'},
             {type: 6, name: '上市公司'}
         ],
-        'financing2':{
-            // '全部': null,
-            '无需融资':0,
-            '天使轮':1,
-            'A轮':2,
-            'B轮':3,
-            'C轮':4,
-            'D轮及以上':5,
-            '上市公司':6,
-        },
+        // 'financing2':{
+        //     // '全部': null,
+        //     '无需融资':0,
+        //     '天使轮':1,
+        //     'A轮':2,
+        //     'B轮':3,
+        //     'C轮':4,
+        //     'D轮及以上':5,
+        //     '上市公司':6,
+        // },
         'approved': [
             // {type: null, name: '全部'},
             {type: 0, name: '未认证'},
@@ -271,14 +271,14 @@ angular.module('admin')
             {type: 2, name: '硕士'},
             {type: 3, name: '博士及以上'}
         ],
-        'education2': {
-            // '全部':null,
-            '大专':0,
-            '本科':1,
-            '硕士':2,
-            '博士及以上':3,
-
-        },
+        // 'education2': {
+        //     // '全部':null,
+        //     '大专':0,
+        //     '本科':1,
+        //     '硕士':2,
+        //     '博士及以上':3,
+        //
+        // },
 
         'experience': [
             // {type: null, name: '全部'},
@@ -289,14 +289,14 @@ angular.module('admin')
             {"type": 4, name: '10年及以上'}
         ],
 
-        'experience2': {
-            // '全部': null,
-            '应届': 0,
-            '1~2年': 1,
-            '3~5年': 2,
-            '6～9年': 3,
-            '10年及以上': 4,
-        },
+        // 'experience2': {
+        //     // '全部': null,
+        //     '应届': 0,
+        //     '1~2年': 1,
+        //     '3~5年': 2,
+        //     '6～9年': 3,
+        //     '10年及以上': 4,
+        // },
 
         'compensation': [
             // {type: null, name: '全部'},
@@ -314,15 +314,15 @@ angular.module('admin')
         },
 
         'status': [
-            {type: null, name: '全部'},
+            // {"type": null, name: '全部'},
             {"type": 0, name: "下架"},
             {"type": 1, name: "上架"},
         ],
-        'status2': [
-            {type: null, name: '全部'},
-            {"type": 1, name: "下架"},
-            {"type": 0, name: "上架"},
-        ]
+        // 'status2': [
+        //     {type: null, name: '全部'},
+        //     {"type": 1, name: "下架"},
+        //     {"type": 0, name: "上架"},
+        // ]
     })
 
     // 职业分类二级联动数据
