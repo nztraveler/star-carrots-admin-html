@@ -84,7 +84,7 @@
         <div class="clear"></div>
     </div>
 <div ng-if="vm.searchParams.companyId"  class="pull-right">
-    <button ui-sref="field.positionDetail({companyId:vm.searchParams.companyId,companyName:vm.searchParams.companyName})" type="button" class="btn btn-primary">新增</button>
+    <button ui-sref="field.positionDetail({companyId:vm.searchParams.companyId,companyName:vm.searchParams.companyName,n:true})" type="button" class="btn btn-primary">新增</button>
 </div>
     <!--表格开始-->
     <div >
@@ -118,7 +118,7 @@
                 <td>{{x.status|position:'status'}}</td>
                 <td>
                     <button ng-click="vm.changePositionStatus(x.id,x.status)"class="btn btn-warning">{{x.status|position:'status2'}}</button>
-                    <button ui-sref="field.positionDetail({id:x.id,companyId:x.companyId,companyName:x.companyName})" class="btn btn-primary">编辑</button>
+                    <button ui-sref="field.positionDetail({id:x.id,companyId:x.companyId,companyName:x.companyName,n:!vm.searchParams.companyId})" class="btn btn-primary">编辑</button>
                     <button ng-click="vm.delPosition(x.id)"class="btn  btn-danger">删除</button>
                 </td>
             </tr>

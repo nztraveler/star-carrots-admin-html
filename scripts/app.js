@@ -223,9 +223,12 @@ angular.module('admin',['ui.router','ui.bootstrap','oc.lazyLoad','mgcrea.ngStrap
         .state('field',{
             url: '/panel',
             templateUrl: 'views/panel.html',
+            // controller: 'panel',
+            // controllerAs: 'vm',
             resolve:{
                 loadMyFile:_lazyLoad([
                     // 这里注入要加载的文件
+                    // 'scripts/controller/panel.js'
                 ])
             },
             redirectTo: 'field.homepage'  //指向默认页，用$state.go会导致刷新别的页面也会跳转到欢迎页
@@ -307,7 +310,7 @@ angular.module('admin',['ui.router','ui.bootstrap','oc.lazyLoad','mgcrea.ngStrap
         })
         // 职位详情
         .state('field.positionDetail', {
-            url: '/positionDetail?id&companyId&companyName',
+            url: '/positionDetail?id&companyId&companyName&n',
             templateUrl: 'views/position/positionDetail.html',
             controller: 'positionDetailCtrl',
             controllerAs: 'vm',

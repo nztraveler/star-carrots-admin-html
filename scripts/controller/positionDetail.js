@@ -25,6 +25,19 @@ angular.module('admin')
                 delete vm.subCategoryData;
             }
         };
+        // 通过参数，判断跳转路径
+        vm.stateGo=function () {
+            if($state.params.n === true){
+                $state.go("field.positionList");
+            }
+            else {
+                $state.go("field.positionList", {
+                    companyId: vm.params.companyId,
+                    companyName: vm.params.companyName
+                }, {reload: true});
+            };
+        }
+
 
         //获取公司福利标签列表
         infoManagementService.getCompanyTags($state.params.companyId).then(function (res) {
@@ -34,20 +47,18 @@ angular.module('admin')
             // 新增
             if ($state.params.id === undefined) {
                 vm.params.name = null;
+                // 保存和取消功能，跳转判断
                 vm.save = function () {
                     infoManagementService.postPosition(vm.params, vm.positionTags).then(function (res) {
                             if (res.data.code === 0) {
-                                $state.go("field.positionList", {
-                                    companyId: vm.params.companyId,
-                                    companyName: vm.params.companyName
-                                }, {reload: true});
+                                vm.stateGo();
                             }
                             else {
                                 $rootScope.alert(res.data.message)
                             }
                         }
                     )
-                }
+                };
             }
             // 编辑
             else {
@@ -78,19 +89,18 @@ angular.module('admin')
                             return item.tag
                         });
 
-                        // 保存
+                        // 保存和取消功能，跳转判断
                         vm.save = function () {
                             infoManagementService.putPosition(vm.params, vm.positionTags, vm.params.id).then(function (res) {
-                                if (res.data.code === 0) {
-                                    $state.go("field.positionList", {
-                                        companyId: vm.params.companyId,
-                                        companyName: vm.params.companyName
-                                    }, {reload: true});
-                                } else {
-                                    $rootScope.alert(res.data.message);
+                                    if (res.data.code === 0) {
+                                        vm.stateGo();
+                                    }
+                                    else {
+                                        $rootScope.alert(res.data.message)
+                                    }
                                 }
-                            })
-                        }
+                            )
+                        };
                     }
                     else {
                         $rootScope.alert(res.data.message)
