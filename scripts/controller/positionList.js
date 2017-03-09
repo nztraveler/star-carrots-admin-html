@@ -99,6 +99,7 @@ function positionSearch($http,$scope,$rootScope,$state,$stateParams,infoManageme
         };
         vm.searchParams.startAt = vm.articleSearch.startAt;
         vm.searchParams.endAt = vm.articleSearch.endAt;
+        vm.searchParams.page = 1;
         $state.go('.', vm.searchParams  );//以新url参数刷新页面
     }
 

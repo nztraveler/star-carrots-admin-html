@@ -3,8 +3,14 @@
     <form class="panel-body" name="myform">
         <div class=" search-margin" >
             <label class="">*类&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp型</label>
-            <select ng-model="vm.params.type" ng-options=" x for (x, y) in vm.articleConstant.type2" required></select>
-            <select ng-if="vm.params.type==3" ng-model="vm.params.industry" ng-options=" x for (x, y) in vm.articleConstant.industry2" required></select>
+            <select ng-model="vm.params.type" required>
+                <option value="">请选择</option>
+                <option ng-repeat="x in vm.articleConstant.type" ng-value="x.type" ng-selected="x.type == vm.params.type">{{x.name}}</option>
+            </select>
+            <select ng-if="vm.params.type==3" ng-model="vm.params.industry"  required>
+                <option value="">请选择</option>
+                <option ng-repeat="x in vm.articleConstant.industry" ng-value="x.type" ng-selected="x.type == vm.params.industry">{{x.name}}</option>
+            </select>
         </div>
         <div class=" search-margin">
             <label class="">*标题名称</label>

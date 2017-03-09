@@ -13,19 +13,19 @@ angular.module('admin')
     // article列表数据，高级写法
 .constant('articleConstant',{
     'type2':{
-        '全部': null,
+        // '全部': null,
         '首页banner':0 ,
         '找职位banner':1,
         '找精英banner':2,
         '行业大图':3
     },
     'status2': {
-        '全部': null,
+        // '全部': null,
         '上线':2 ,
         '下线':1,
     },
     'industry2': {
-        '不限': null,
+        // '不限': null,
         '移动互联网':0 ,
         '电子商务':1,
         '企业服务':2,
@@ -35,14 +35,14 @@ angular.module('admin')
         '游戏':6
     },
     'type':[
-        {type:'', name: '全部'},//参数为空时显示全部
+        // {type:'', name: '全部'},//参数为空时显示全部
         {type:0, name: '首页banner'},
         {type:1, name: '找职位banner'},
         {type:2, name: '找精英banner'},
         {type:3, name: '行业大图'},
     ],
     'industry': [
-        {type: null, name: '不限'},
+        // {type: null, name: '不限'},
         {type: 0, name: "移动互联网"},
         {type: 1, name: "电子商务"},
         {type: 2, name: "企业服务"},
@@ -52,8 +52,8 @@ angular.module('admin')
         {type: 6, name: "游戏"}
     ],
     'status': [
-        {type:null, name: '全部'},
-        {type: 0, name: '草稿'},
+        // {type:null, name: '全部'},
+        // {type: 0, name: '草稿'},
         {type: 2, name: '上线'},
         {type: 1, name: '下线'}
     ]
@@ -72,7 +72,7 @@ angular.module('admin')
             {type: 6, name: "游戏"}
         ],
         'financing': [
-            {type: null, name: '全部'},
+            // {type: null, name: '全部'},
             {type: 0, name: '无需融资'},
             {type: 1, name: '天使轮'},
             {type: 2, name: 'A轮'},
@@ -82,7 +82,7 @@ angular.module('admin')
             {type: 6, name: '上市公司'}
         ],
         'financing2':{
-            '全部': null,
+            // '全部': null,
             '无需融资':0,
             '天使轮':1,
             'A轮':2,
@@ -265,14 +265,14 @@ angular.module('admin')
             }
         ],
         'education': [
-            {type: null, name: '全部'},
+            // {type: null, name: '全部'},
             {type: 0, name: '大专'},
             {type: 1, name: '本科'},
             {type: 2, name: '硕士'},
             {type: 3, name: '博士及以上'}
         ],
         'education2': {
-            '全部':null,
+            // '全部':null,
             '大专':0,
             '本科':1,
             '硕士':2,
@@ -281,7 +281,7 @@ angular.module('admin')
         },
 
         'experience': [
-            {type: null, name: '全部'},
+            // {type: null, name: '全部'},
             {"type": 0, name: '应届'},
             {"type": 1, name: '1~2年'},
             {"type": 2, name: '3~5年'},
@@ -290,7 +290,7 @@ angular.module('admin')
         ],
 
         'experience2': {
-            '全部': null,
+            // '全部': null,
             '应届': 0,
             '1~2年': 1,
             '3~5年': 2,
@@ -299,14 +299,14 @@ angular.module('admin')
         },
 
         'compensation': [
-            {type: null, name: '全部'},
+            // {type: null, name: '全部'},
             {"type": 0, name: "0-8k"},
             {"type": 1, name: "8-15k"},
             {"type": 2, name: "16-25k"},
             {"type": 3, name: "26k及以上"}
         ],
         'compensation2': {
-            '全部': null,
+            // '全部': null,
             '0-8k': 0,
             '8-15k': 1,
             '16-25k': 2,

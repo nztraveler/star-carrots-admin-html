@@ -18,13 +18,20 @@
 
     <div class="pull-left search-margin ">
         <span class="">状     态</span>
-        <select ng-model="vm.articleSearch.status" ng-options=" x for (x, y) in vm.articleConstant.status2" ></select>
+        <select ng-model="vm.articleSearch.status" >
+            <option value=""> 全部 </option>
+            <option ng-repeat="x in vm.articleConstant.status" ng-value="x.type" ng-selected="x.type == vm.articleSearch.status">{{x.name}}</option>
+        </select>
+
         <!--<input ng-model="vm.status"/>-->
     </div>
 
     <div class="pull-left search-margin">
         <span class="">类     型</span>
-        <select ng-model="vm.articleSearch.type" ng-options=" x for (x, y) in vm.articleConstant.type2" ></select>
+        <select ng-model="vm.articleSearch.type" >
+            <option value=""> 全部 </option>
+            <option ng-repeat="x in vm.articleConstant.type" ng-value="x.type" ng-selected="x.type == vm.articleSearch.type">{{x.name}}</option>
+        </select>
     </div>
     </div>
 

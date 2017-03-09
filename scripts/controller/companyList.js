@@ -70,6 +70,7 @@ function companySearch(companyListConstant,articleConstant,$http,$scope,$rootSco
             vm.company.city = vm.company.address.city;
             vm.company.county = vm.company.address.district;
         }
+        vm.company.page = 1;
         console.log(vm.company);
         $state.go('.', vm.company);//以新url参数刷新页面
     }

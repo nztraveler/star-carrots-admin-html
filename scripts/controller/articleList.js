@@ -68,6 +68,7 @@ function articleSearch(articleConstant,$http,$scope,$rootScope,$state,$statePara
         if(vm.articleSearch.endAt !== undefined && vm.articleSearch.endAt !== null&&vm.articleSearch.endAt !== ''){
             vm.articleSearch.endAt=vm.articleSearch.endAt+86399999;//给结束时间加一个时间戳，定位到每天的23.59.59
         };
+        vm.articleSearch.page =1;
 
         $state.go('.', vm.articleSearch);//以新url参数刷新页面
     }

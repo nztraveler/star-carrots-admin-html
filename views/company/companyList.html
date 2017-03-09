@@ -13,7 +13,10 @@
 
             <div class="pull-left search-margin ">
                 <span class="">公司行业: </span>
-                <select ng-model="vm.company.industry"  ng-options=" x for (x, y) in vm.articleConstant.industry2" ></select>
+                <select ng-model="vm.company.industry">
+                    <option value="">全部 </option>
+                    <option ng-repeat="x in vm.articleConstant.industry" ng-value="x.type" ng-selected="x.type == vm.company.industry">{{x.name}}</option>
+                </select>
                 <!--<input ng-model="vm.status"/>-->
             </div>
 
@@ -29,7 +32,10 @@
 
             <div class="pull-left search-margin ">
                 <span class="">融资规模: </span>
-                <select ng-model="vm.company.financing" ng-options=" x for (x, y) in vm.companyListConstant.financing2" ></select>
+                <select ng-model="vm.company.financing" >
+                    <option value=""> 全部 </option>
+                    <option ng-repeat="x in vm.companyListConstant.financing" ng-value="x.type" ng-selected="x.type == vm.company.financing">{{x.name}}</option>
+                </select>
                 <!--<input ng-model="vm.status"/>-->
             </div>
 

@@ -12,7 +12,10 @@
 
             <div class="pull-left search-margin ">
                 <span class="">工作经验:</span>
-                <select ng-model="vm.searchParams.experience"  ng-options=" x for (x, y) in vm.ProfessionConstant.experience2" ></select>
+                <select ng-model="vm.searchParams.experience">
+                    <option value=""> 全部 </option>
+                    <option ng-repeat="x in vm.ProfessionConstant.experience" ng-value="x.type" ng-selected="x.type == vm.searchParams.experience">{{x.name}}</option>
+                </select>
             </div>
 
             <div class="pull-left search-margin" >
@@ -22,7 +25,10 @@
 
             <div class="pull-left search-margin ">
                 <span class="">学历要求:</span>
-                <select ng-model="vm.searchParams.education" ng-options=" x for (x, y) in vm.ProfessionConstant.education2" ></select>
+                <select ng-model="vm.searchParams.education">
+                    <option value=""> 全部 </option>
+                    <option ng-repeat="x in vm.ProfessionConstant.education" ng-value="x.type" ng-selected="x.type == vm.searchParams.education">{{x.name}}</option>
+                </select>
             </div>
 
 <!--职业类别，二级联动-->
@@ -54,7 +60,10 @@
 
             <div class="pull-left search-margin ">
                 <span class="">薪&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp资:</span>
-                <select ng-model="vm.searchParams.compensation" ng-options=" x for (x, y) in vm.ProfessionConstant.compensation2" ></select>
+                <select ng-model="vm.searchParams.compensation">
+                    <option value=""> 全部 </option>
+                    <option ng-repeat="x in vm.ProfessionConstant.compensation" ng-value="x.type" ng-selected="x.type == vm.searchParams.compensation">{{x.name}}</option>
+                </select>
             </div>
 
             <div class="pull-left search-margin ">
