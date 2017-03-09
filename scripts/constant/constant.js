@@ -318,11 +318,11 @@ angular.module('admin')
             {"type": 0, name: "下架"},
             {"type": 1, name: "上架"},
         ],
-        // 'status2': [
-        //     {type: null, name: '全部'},
-        //     {"type": 1, name: "下架"},
-        //     {"type": 0, name: "上架"},
-        // ]
+        'status2': [
+            // {type: null, name: '全部'},
+            {"type": 1, name: "下架"},
+            {"type": 0, name: "上架"},
+        ]
     })
 
     // 职业分类二级联动数据

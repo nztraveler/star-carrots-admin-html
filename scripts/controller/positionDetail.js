@@ -27,7 +27,7 @@ angular.module('admin')
         };
         // 通过参数，判断跳转路径
         vm.stateGo=function () {
-            if($state.params.n === true){
+            if($state.params.n == 'true'){
                 $state.go("field.positionList");
             }
             else {
