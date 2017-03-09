@@ -168,6 +168,12 @@ button[disabled]{
 .blue-color{
     color: #428bca;
 }
+.red{
+    color: #fd1c15;
+}
+.bold{
+    font-weight: 700;
+}
 .search-margin{
     margin: 10px;
 }

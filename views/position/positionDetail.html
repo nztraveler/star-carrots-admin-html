@@ -4,7 +4,7 @@
         <div class="panel-heading overflow">
             <span class="pull-left">{{vm.params.name}}职业详细信息</span>
             <div class="pull-right">
-                <span>*</span>
+                <span><span class="red">*</span></span>
                 <select
                         ng-model="vm.params.recommend" required>
                     <option value="">请选择</option>
@@ -18,7 +18,7 @@
             <!--详细信息区域-->
             <div class="panel-body">
                 <div class="pull-left search-margin">
-                    <label class="">*职位名称</label>
+                    <label class=""><span class="red">*</span>职位名称</label>
                     <input type="text"  ng-model="vm.params.name" required>
                 </div>
                 <div class="pull-left search-margin">
@@ -29,7 +29,7 @@
                 </div>
 
                 <div class="pull-left search-margin">
-                    <label class="">*工作经验</label>
+                    <label class=""><span class="red">*</span>工作经验</label>
                     <select ng-model="vm.params.experience">
                         <option value="">请选择</option>
                         <option ng-repeat="x in vm.ProfessionConstant.experience" ng-value="x.type" ng-selected="x.type == vm.params.experience">{{x.name}}</option>
@@ -37,7 +37,7 @@
                 </div>
 
                 <div class="pull-left search-margin" >
-                    <label class="">*学历要求</label>
+                    <label class=""><span class="red">*</span>学历要求</label>
                     <select ng-model="vm.params.education" required>
                         <option value="">请选择</option>
                         <option ng-repeat="x in vm.ProfessionConstant.education" ng-value="x.type" ng-selected="x.type == vm.params.education">{{x.name}}</option>
@@ -46,7 +46,7 @@
                 </div>
 
                 <div class="pull-left search-margin" >
-                    <label class="">*薪 资</label>
+                    <label class=""><span class="red">*</span>薪 资</label>
                     <select ng-model="vm.params.compensation" required>
                         <option value="">请选择</option>
                         <option ng-repeat="x in vm.ProfessionConstant.compensation" ng-value="x.type" ng-selected="x.type == vm.params.compensation">{{x.name}}</option>
@@ -54,7 +54,7 @@
                 </div>
                 <!--职业类别，二级联动-->
                 <div class="pull-left search-margin ">
-                    <span class="">*职业类别</span>
+                    <span class="bold"><span class="red">*</span>职业类别</span>
                     <span class="vertical-middle">
                     <select class="form-control" ng-model="vm.params.category"
                             ng-change="vm.subCategoryFn(vm.params.category)" required>
@@ -95,21 +95,25 @@
                 <div class="panel-heading">职位描述</div>
                 <div class="panel-body">
                     <div class="col-xs-12 search-margin">
-                        <label class="col-xs-2">*岗位职责</label>
+                        <label class="col-xs-2"><span class="red">*</span>岗位职责</label>
                         <textarea type="text" class="col-xs-10" ng-model="vm.params.responsibility" rows="6" maxlength="1000"required></textarea>
                     </div>
 
                     <div class="col-xs-12 search-margin">
-                        <label class="col-xs-2">*必备条件</label>
+                        <label class="col-xs-2"><span class="red">*</span>必备条件</label>
                         <textarea type="text" class="col-xs-10" ng-model="vm.params.requisite" rows="6" maxlength="1000" required></textarea>
                     </div>
 
                     <div class="col-xs-12 search-margin">
-                        <label class="col-xs-2">*公司福利</label>
+                        <label class="col-xs-2"><span class="red">*</span>公司福利</label>
                         <textarea type="text" class="col-xs-10" ng-model="vm.params.boon" rows="6" maxlength="1000" required></textarea>
                     </div>
                 </div>
-
+                <div class="red">
+                    <div ng-messages="myform.$error">
+                        <div ng-message="required">*号为必填项，需填写后提交</div>
+                    </div>
+                </div>
                 <div class="pull-right margin-10-tb">
                     <button type="button" class="btn btn-success"
                             ng-disabled="!myform.$valid"

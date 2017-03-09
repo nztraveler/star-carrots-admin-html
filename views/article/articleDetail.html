@@ -2,7 +2,7 @@
     <div class="panel-heading">新增/编辑</div>
     <form class="panel-body" name="myform">
         <div class=" search-margin" >
-            <label class="">*类&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp型</label>
+            <label class=""><span class="red">*</span>类&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp型</label>
             <select ng-model="vm.params.type" required>
                 <option value="">请选择</option>
                 <option ng-repeat="x in vm.articleConstant.type" ng-value="x.type" ng-selected="x.type == vm.params.type">{{x.name}}</option>
@@ -13,18 +13,18 @@
             </select>
         </div>
         <div class=" search-margin">
-            <label class="">*标题名称</label>
+            <label class=""><span class="red">*</span>标题名称</label>
             <input type="text"  ng-model="vm.params.title" required>
         </div>
         <div class=" search-margin" ng-if="vm.params.type!==3">
-            <lable class="">*跳转链接</lable>
+            <lable class="bold"><span class="red">*</span>跳转链接</lable>
             <input type="text"  ng-model="vm.params.url" required>
         </div>
 
         <!--公司logo-->
         <div class="row form-group">
             <div class="clear"></div>
-            <label class="col-md-2 control-label word-spacing-25"><span class="col-md-12">*配&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp图</span></label>
+            <label class="col-md-2 control-label word-spacing-25"><span class="col-md-12"><span class="red">*</span>配&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp图</span></label>
             <div class="col-md-10 padding-0">
                 <div class="col-md-12 ">
                     <label class="btn btn-primary" for="file2">选择文件</label>
@@ -33,6 +33,7 @@
                            type="file"
                            nv-file-select
                            uploader="vm.uploader1"
+                           required
                     />
                 </div>
                 <div class="col-md-12">
@@ -86,9 +87,11 @@
                 </div>
             </div>
         </div>
+        <span ng-show="!vm.params.img" class="red">　请上传一张图片</span>
         <!--公司logoend-->
         <div class="form-group">
-            <div class="col-md-2"></div>
+            <div class="col-md-2">
+            </div>
             <div class="col-md-8">
                 <button type="button" class="btn btn-success" ng-click="vm.pubArticle() "
                         ng-disabled="!myform.$valid||vm.params.img==undefined">立即上线
@@ -98,6 +101,11 @@
                 </button>
                 <!--<span class="text-red" ng-show="!vm.vaidShow">请补全信息</span>-->
                 <button type="button" class="btn btn-default pull-right" ui-sref="field.articleList">取消</button>
+            </div>
+            <div class="red col-xs-12">
+                <div ng-messages="myform.$error">
+                    <div ng-message="required">*号为必填项，需填写后提交</div>
+                </div>
             </div>
         </div>
 

@@ -109,7 +109,7 @@ function recordCookies($cookies) {
 }
 
 
-angular.module('admin',['ui.router','ui.bootstrap','oc.lazyLoad','mgcrea.ngStrap.datepicker','mgcrea.ngStrap.modal','ngCookies','angularFileUpload', 'angular-loading-bar'])
+angular.module('admin',['ui.router','ui.bootstrap','oc.lazyLoad','mgcrea.ngStrap.datepicker','mgcrea.ngStrap.modal','ngCookies','angularFileUpload', 'angular-loading-bar','ngMessages'])
     .factory('recordCookies', recordCookies)
     .config(httpConfig)
     .config(lazyLoadConfig)
