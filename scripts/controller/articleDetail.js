@@ -80,19 +80,6 @@ angular.module('admin')
             //存入草稿
             vm.saveArticle = function () {
                 vm.params.status = 1;
-                // console.log("good");
-                // console.log(vm.params);
-                // // var a={a:2,b:3,c:6};
-                // // a.a=undefined;
-                // // a["#"]=undefined;
-                // var b=$.param(vm.params);
-                // console.log(b);
-                // vm.aaa = $.param(vm.params);
-                // vm.aa = vm.params;
-                // vm.cc = $.param(vm.aa);
-                // console.log(vm.cc);
-                // console.log(params;
-                // console.log($.param(vm.params));
                 ArticleManagementService.addArticle(vm.params).then(function (res) {
                     if (res.data.code === 0) {
                         $rootScope.alert("新增成功");

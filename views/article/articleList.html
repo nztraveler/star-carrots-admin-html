@@ -95,7 +95,7 @@
             <tr ng-repeat="x in vm.list">
                 <!--获取数组下标生成序号-->
                 <td>{{$index + 1}}</td>
-                <td><img  class="width100" src="{{x.img}}"> </td>
+                <td><img  class="width100" ng-src="{{x.img}}"> </td>
                 <td> {{x.title}}</td>
                 <td> {{x|Article:'type'}}</td>
                 <td>{{x.author}}</td>

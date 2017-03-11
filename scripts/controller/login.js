@@ -2,9 +2,9 @@
  * Created by CT on 2017/2/21.
  */
 'use strict';
-angular.module('admin').controller('logInController',['$state', '$http','$scope','$rootScope','$cookies','$timeout',   'recordCookies', logIn]);
+angular.module('admin').controller('logInController',['$state', '$http','$scope','$rootScope','$cookies','$timeout',   'recordCookies','loginService', logIn]);
 
-function logIn($state,$http,$scope,$rootScope,$cookies,$timeout,  recordCookies){
+function logIn($state,$http,$scope,$rootScope,$cookies,$timeout,  recordCookies,loginService){
     var vm = this ;
     vm.submit = function () {
         console.log('1');
@@ -13,13 +13,7 @@ function logIn($state,$http,$scope,$rootScope,$cookies,$timeout,  recordCookies)
             pwd: vm.pwd
         };
 
-        $http({
-            url: '/carrots-admin-ajax/a/login',
-            method: 'POST',
-            data: params, //将对象转换成序列化，例如这样"mobile=" + mobile+ "&pwd=" + pwd
-            headers: {'Content-Type': 'application/x-www-form-urlencoded'} // post发送方法，需要定义头部
-
-        }).then(function (res) {
+        loginService.login(params).then(function (res) {
             if(res.data.code == 0){
                 vm.show = false;
                 $cookies.login = "true";

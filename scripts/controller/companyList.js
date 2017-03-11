@@ -29,10 +29,7 @@ function companySearch(companyListConstant,articleConstant,$http,$scope,$rootSco
     // 获取数据的ajax
     vm.getList = function(param){
         // console.log("2"+$state.params.page);
-        $http.get('/carrots-admin-ajax/a/company/search',{
-                params: param//搜索的参数
-            }
-        ).success(function (res) {
+        infoManagementService.getCompanyList(param).success(function (res) {
             // console.log("3"+$state.params.page);
             if(res.code == 0){
                 vm.list=res.data;
@@ -82,10 +79,7 @@ function companySearch(companyListConstant,articleConstant,$http,$scope,$rootSco
 
     // 分页使用数据监听currentPage的改动
     $scope.$watch('vm.param.page', function () {
-        $http.get('/carrots-admin-ajax/a/company/search',{
-                params: vm.param//搜索的参数
-            }
-        ).then(function (res) {
+        infoManagementService.getCompanyList(vm.param).then(function (res) {
             $state.go('.', vm.param);//以新url参数刷新页面,必须要先请求ajax，再生效跳转，不然url的page参数会一直改变。
             // 跳转到本页面保持顶部
             commonUtil.scrollTo(0, 0);
@@ -97,7 +91,7 @@ function companySearch(companyListConstant,articleConstant,$http,$scope,$rootSco
         // alert(id);
         $rootScope.confirm("是否确认删除", function () {
             // 发送删除请求
-            $http.delete('/carrots-admin-ajax/a/u/company/'+id).then(function (res) {
+            infoManagementService.delCompany(id).then(function (res) {
                 if (res.data.code === 0) {
                     $state.go('.', vm.param,{reload: true});
                 } else {
