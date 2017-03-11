@@ -189,6 +189,12 @@ angular.module('admin',['ui.router','ui.bootstrap','oc.lazyLoad','mgcrea.ngStrap
         };
 
     })
+
+    .run(function ($rootScope, $state) {
+        $rootScope.$on('$stateChangeStart', function () {
+            $rootScope.currentState = $state;
+        })
+    })
     .config(function ($stateProvider, $urlRouterProvider ,$ocLazyLoadProvider) {
     // 定义懒加载功能
     var _lazyLoad = function (loaded) {
@@ -221,14 +227,15 @@ angular.module('admin',['ui.router','ui.bootstrap','oc.lazyLoad','mgcrea.ngStrap
         })
 
         .state('field',{
-            url: '/panel',
+            url: '/panel/:panelId',
             templateUrl: 'views/panel.html',
-            // controller: 'panel',
-            // controllerAs: 'vm',
+            controller: 'panel',
+            controllerAs: 'vm',
             resolve:{
                 loadMyFile:_lazyLoad([
                     // 这里注入要加载的文件
-                    // 'scripts/controller/panel.js'
+                    'scripts/controller/panel.js',
+                    // 'scripts/directive/ptteng-sidebar/ptteng-sidebar-0.0.1.js',
                 ])
             },
             redirectTo: 'field.homepage'  //指向默认页，用$state.go会导致刷新别的页面也会跳转到欢迎页

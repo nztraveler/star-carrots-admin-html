@@ -1,6 +1,6 @@
 <!--类型搜索-->
 <div>
-    <div class="form-horizontal">
+    <div class="form-horizontal"  id="position">
         <div class="panel panel-default">
             <!--搜索框-->
             <div class="panel-body">
@@ -99,6 +99,7 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             <strong>公司列表</strong>
+            <span class="red" ng-show="vm.show">&nbsp&nbsp sorry，暂无此数据</span>
             <button class="pull-right btn btn-primary btn-xs"  ui-sref="field.companyDetail" type="button">新增</button>
         </div>
 

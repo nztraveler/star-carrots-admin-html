@@ -3,65 +3,65 @@ angular.module('admin')
     .factory('path', function (commonUtil) {
         return {
             //login
-            login: "/a/login",
-            logout: "/a/logout",
+            login: "/carrots-admin-ajax/a/login",
+            logout: "/carrots-admin-ajax/a/logout",
             //manager
             manager: function (mid) {
                 if (mid == undefined || mid == "") {
-                    return "/a/u/manager";
+                    return "/carrots-admin-ajax/a/u/manager";
                 } else {
-                    return "/a/u/manager/" + mid;
+                    return "/carrots-admin-ajax/a/u/manager/" + mid;
                 }
 
             },
-            manager_list: "/a/u/manager/",
+            manager_list: "/carrots-admin-ajax/a/u/manager/",
             manager_multi_detail: function (params) {
-                return "/a/u/multi/manager" + commonUtil.concactArrayParam("ids", params);
+                return "/carrots-admin-ajax/a/u/multi/manager" + commonUtil.concactArrayParam("ids", params);
 
             },
             //pwd
-            changePwd: "/a/u/pwd",
+            changePwd: "/carrots-admin-ajax/a/u/pwd",
             //role
             role: function (rid) {
 
                 if (rid == undefined || rid == "") {
-                    return "/a/u/role";
+                    return "/carrots-admin-ajax/a/u/role";
                 } else {
-                    return "/a/u/role/" + rid;
+                    return "/carrots-admin-ajax/a/u/role/" + rid;
                 }
 
             },
-            role_list: "/a/u/role/",
+            role_list: "/carrots-admin-ajax/a/u/role/",
             role_multi_detail: function (params) {
-                return "/a/u/multi/role" + commonUtil.concactArrayParam("ids", params);
+                return "/carrots-admin-ajax/a/u/multi/role" + commonUtil.concactArrayParam("ids", params);
 
             },
             role_module: function (rid) {
-                return "/a/u/role/" + rid + "/module"
+                return "/carrots-admin-ajax/a/u/role/" + rid + "/module"
             },
             role_manager: function (rid) {
-                return "/a/u/role/" + rid + "/manager"
+                return "/carrots-admin-ajax/a/u/role/" + rid + "/manager"
             },
             //module
             module: function (mid) {
                 if (mid == undefined || mid == "") {
-                    return "/a/u/module";
+                    return "/carrots-admin-ajax/a/u/module";
                 } else {
-                    return "/a/u/module/" + mid
+                    return "/carrots-admin-ajax/a/u/module/" + mid
                 }
             },
-            module_list: "/a/u/module/",
+            module_list: "/carrots-admin-ajax/a/u/module/",
             module_multi_detail: function (params) {
-                return "/a/u/multi/module" + commonUtil.concactArrayParam("ids", params);
+                return "/carrots-admin-ajax/a/u/multi/module" + commonUtil.concactArrayParam("ids", params);
 
             },
 
             //article
             article: function (aid) {
                 if (aid == undefined || aid == "") {
-                    return "/a/u/article";
+                    return "/carrots-admin-ajax/a/u/article";
                 } else {
-                    return "/a/u/article/" + aid;
+                    return "/carrots-admin-ajax/a/u/article/" + aid;
                 }
 
 

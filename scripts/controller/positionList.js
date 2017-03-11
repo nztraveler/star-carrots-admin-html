@@ -65,6 +65,11 @@ function positionSearch($http,$scope,$rootScope,$state,$stateParams,infoManageme
                 vm.list=res.data;
                 console.log(res);
                 vm.num = res.total;
+                if(vm.num==0){
+                    vm.show = true;
+                }else {
+                    vm.show = false;
+                };
                 // 分页配置
                 vm.maxSize = 5;// 下方分页处最多显示5个分页序号
                 vm.maxPerPage = 10;//每页数量
@@ -94,9 +99,11 @@ function positionSearch($http,$scope,$rootScope,$state,$stateParams,infoManageme
     //搜索功能，url传参
     vm.search = function () {
         // 日历插件数据处理
-        if(vm.articleSearch.endAt !== undefined && vm.articleSearch.endAt !== null&&vm.articleSearch.endAt !== ''){
-            vm.articleSearch.endAt=vm.articleSearch.endAt+86399999;//给结束时间加一个时间戳，定位到每天的23.59.59
-        };
+        commonUtil.querySearchParams(vm.articleSearch);
+        console.log(vm.articleSearch);
+        // if(vm.articleSearch.endAt !== undefined && vm.articleSearch.endAt !== null&&vm.articleSearch.endAt !== ''){
+        //     vm.articleSearch.endAt=vm.articleSearch.endAt+86399999;//给结束时间加一个时间戳，定位到每天的23.59.59
+        // };
         vm.searchParams.startAt = vm.articleSearch.startAt;
         vm.searchParams.endAt = vm.articleSearch.endAt;
         vm.searchParams.page = 1;

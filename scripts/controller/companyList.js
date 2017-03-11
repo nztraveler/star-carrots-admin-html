@@ -38,6 +38,11 @@ function companySearch(companyListConstant,articleConstant,$http,$scope,$rootSco
                 vm.list=res.data;
                 console.log(res);
                 vm.num = res.total;
+                if(vm.num==0){
+                    vm.show = true;
+                }else {
+                    vm.show = false;
+                };
                 // 分页配置
                 vm.maxSize = 5;// 下方分页处最多显示5个分页序号
                 vm.maxPerPage = 10;//每页数量

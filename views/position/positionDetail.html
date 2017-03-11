@@ -1,163 +1,169 @@
 <div>
-    <form name="myform" novalidate>
-    <div class="panel panel-default">
-        <div class="panel-heading overflow">
-            <strong>{{vm.params.name}}职业详细信息</strong>
-            <div class="pull-right">
-                <span><span class="red">*</span></span>
-                <select
-                        ng-model="vm.params.recommend" required>
-                    <option value="">请选择</option>
-                    <option value=0>普通</option>
-                    <option value=1>推荐</option>
-                </select>
-            </div>
-
-        </div>
-        <div class="panel-body" >
-            <!--详细信息区域-->
-
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label class="control-label col-md-4"><span class="red">*</span>职位名称</label>
-                        <div class="col-md-8">
-                            <input class="form-control" type="text"  ng-model="vm.params.name" required>
-                        </div>
-                    </div>
+    <form class="form-horizontal" name="myform" novalidate>
+        <div class="panel panel-default">
+            <div class="panel-heading overflow">
+                <strong>{{vm.params.name}}职业详细信息</strong>
+                <div class="pull-right">
+                    <span><span class="red">*</span></span>
+                    <select
+                            ng-model="vm.params.recommend" required>
+                        <option value="">请选择</option>
+                        <option value=0>普通</option>
+                        <option value=1>推荐</option>
+                    </select>
                 </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label class="control-label col-md-4">在招公司</label>
-                        <div class="col-md-8">
-                            <select class="form-control" disabled>
-                                <option value="">{{vm.params.companyName}}</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label class="control-label col-md-4"><span class="red">*</span>工作经验</label>
-                        <div class="col-md-8">
-                            <select class="form-control" ng-model="vm.params.experience">
-                                <option value="">请选择</option>
-                                <option ng-repeat="x in vm.ProfessionConstant.experience" ng-value="x.type" ng-selected="x.type == vm.params.experience">{{x.name}}</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label class="control-label col-md-4"><span class="red">*</span>学历要求</label>
-                        <div class="col-md-8">
-                            <select class="form-control" ng-model="vm.params.education" required>
-                                <option value="">请选择</option>
-                                <option ng-repeat="x in vm.ProfessionConstant.education" ng-value="x.type" ng-selected="x.type == vm.params.education">{{x.name}}</option>
-
-                            </select>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label class="control-label col-md-4 word-spacing-25"><span class="red">*</span>薪 资</label>
-                        <div class="col-md-8">
-                            <select class="form-control" ng-model="vm.params.compensation" required>
-                                <option value="">请选择</option>
-                                <option ng-repeat="x in vm.ProfessionConstant.compensation" ng-value="x.type" ng-selected="x.type == vm.params.compensation">{{x.name}}</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label class="control-label col-md-4"><span class="red">*</span>职业分类</label>
-                        <div class="col-md-3">
-                            <select class="form-control" class="form-control" ng-model="vm.params.category"
-                                    ng-change="vm.subCategoryFn(vm.params.category)" required>
-                                <option value="">请选择</option>
-                                <option ng-repeat="item in vm.categoryData track by $index" value="{{item.id}}">
-                                    {{item.name}}
-                                </option>
-                            </select>
-                        </div>
-                        <label class="control-label col-md-2 text-center">—</label>
-                        <div class="col-md-3">
-                            <select class="form-control" class="form-control" ng-model="vm.params.subCategory" required
-                                    ng-options="a.id as a.name  for a in vm.subCategoryData ">
-                                <option value="">请选择</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label class="control-label col-md-2" ng-if="vm.Multiselect.length!==0">公司福利</label>
-                        <div class="col-md-10">
-                            <label ng-repeat="li in  vm.Multiselect track by $index"
-                                   class="control-label k margin-10 vertical-middle">
-                                <input type="checkbox" name="li.name" ng-checked="li.check"
-                                       class="vertical-middle "
-                                       ng-click="vm.checkboxMulti(li.name,vm.positionTags)">
-                                <span class="label-info label vertical-middle ">{{li.name}}</span>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             </div>
+            <div class="panel-body">
+                <!--详细信息区域-->
 
-            <!--公司产品区域-->
-        <div class="">
-            <div class="panel panel-default">
-                <div class="panel-heading">职位描述</div>
-                <div class="panel-body">
-                    <div class="row form-group">
-                        <label class="control-label col-md-2"><span class="red">*</span>岗位职责 </label>
-                        <div class="col-md-10">
-                            <textarea type="text" class="col-xs-10" ng-model="vm.params.responsibility" rows="6" maxlength="1000"required></textarea>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label col-md-4"><span class="red">*</span>职位名称</label>
+                            <div class="col-md-8">
+                                <input class="form-control" type="text" ng-model="vm.params.name" required>
+                            </div>
                         </div>
                     </div>
-                    <div class="row form-group">
-                        <label class="control-label col-md-2"><span class="red">*</span>必备条件</label>
-                        <div class="col-md-10">
-                            <textarea type="text" class="col-xs-10" ng-model="vm.params.requisite" rows="6" maxlength="1000" required></textarea>
-                        </div>
-                    </div>
-                    <div class="row form-group">
-                        <label class="control-label col-md-2"><span class="red">*</span>公司福利</label>
-                        <div class="col-md-10">
-                            <textarea type="text" class="col-xs-10" ng-model="vm.params.boon" rows="6" maxlength="1000" required></textarea>
-                        </div>
-                    </div>
-
-                    <div class="col-md-2"></div>
-                    <div class="col-md-10">
-                        <div class="col-xs-12 pull-right">
-                            <button type="button" class="btn btn-success" ng-click="vm.save()" ng-disabled="!myform.$valid">保存
-                            </button>
-                            <button type="button" class="btn btn-default" ui-sref="field.positionList">取消</button>
-                        </div>
-                        <div class="col-xs-12 red">
-                            <div ng-messages="myform.$error">
-                                <div ng-message="required">*号为必填项，需填写后提交</div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label col-md-4">在招公司</label>
+                            <div class="col-md-8">
+                                <select class="form-control" disabled>
+                                    <option value="">{{vm.params.companyName}}</option>
+                                </select>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label col-md-4"><span class="red">*</span>工作经验</label>
+                            <div class="col-md-8">
+                                <select class="form-control" ng-model="vm.params.experience">
+                                    <option value="">请选择</option>
+                                    <option ng-repeat="x in vm.ProfessionConstant.experience" ng-value="x.type"
+                                            ng-selected="x.type == vm.params.experience">{{x.name}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label col-md-4"><span class="red">*</span>学历要求</label>
+                            <div class="col-md-8">
+                                <select class="form-control" ng-model="vm.params.education" required>
+                                    <option value="">请选择</option>
+                                    <option ng-repeat="x in vm.ProfessionConstant.education" ng-value="x.type"
+                                            ng-selected="x.type == vm.params.education">{{x.name}}
+                                    </option>
 
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label col-md-4 word-spacing-25"><span class="red">*</span>薪 资</label>
+                            <div class="col-md-8">
+                                <select class="form-control" ng-model="vm.params.compensation" required>
+                                    <option value="">请选择</option>
+                                    <option ng-repeat="x in vm.ProfessionConstant.compensation" ng-value="x.type"
+                                            ng-selected="x.type == vm.params.compensation">{{x.name}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="control-label col-md-4"><span class="red">*</span>职业分类</label>
+                            <div class="col-md-3">
+                                <select class="form-control" class="form-control" ng-model="vm.params.category"
+                                        ng-change="vm.subCategoryFn(vm.params.category)" required>
+                                    <option value="">请选择</option>
+                                    <option ng-repeat="item in vm.categoryData track by $index" value="{{item.id}}">
+                                        {{item.name}}
+                                    </option>
+                                </select>
+                            </div>
+                            <label class="control-label col-md-2 text-center">—</label>
+                            <div class="col-md-3">
+                                <select class="form-control" class="form-control" ng-model="vm.params.subCategory"
+                                        required
+                                        ng-options="a.id as a.name  for a in vm.subCategoryData ">
+                                    <option value="">请选择</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="control-label col-md-2" ng-if="vm.Multiselect.length!==0">公司福利</label>
+                            <div class="col-md-10">
+                                <label ng-repeat="li in  vm.Multiselect track by $index"
+                                       class="control-label k margin-10 vertical-middle">
+                                    <input type="checkbox" name="li.name" ng-checked="li.check"
+                                           class="vertical-middle margin-0"
+                                           ng-click="vm.checkboxMulti(li.name,vm.positionTags)">
+                                    <span class="label-info label vertical-middle ">{{li.name}}</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--公司产品区域-->
+                <div class="panel panel-default">
+                    <div class="panel-heading">职位描述</div>
+                    <div class="panel-body">
+                        <div class="row form-group">
+                            <label class="control-label col-md-2"><span class="red">*</span>岗位职责 </label>
+                            <div class="col-md-10">
+                                <textarea type="text" class="col-xs-10" ng-model="vm.params.responsibility" rows="6"
+                                          maxlength="1000" required></textarea>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <label class="control-label col-md-2"><span class="red">*</span>必备条件</label>
+                            <div class="col-md-10">
+                                <textarea type="text" class="col-xs-10" ng-model="vm.params.requisite" rows="6"
+                                          maxlength="1000" required></textarea>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <label class="control-label col-md-2"><span class="red">*</span>公司福利</label>
+                            <div class="col-md-10">
+                                <textarea type="text" class="col-xs-10" ng-model="vm.params.boon" rows="6"
+                                          maxlength="1000" required></textarea>
+                            </div>
+                        </div>
+
+                        <div class="col-md-2"></div>
+                        <div class="col-md-10">
+                            <div class="col-xs-12 pull-right">
+                                <button type="button" class="btn btn-success" ng-click="vm.save()"
+                                        ng-disabled="!myform.$valid">保存
+                                </button>
+                                <button type="button" class="btn btn-default" ui-sref="field.positionList">取消</button>
+                            </div>
+                            <div class="col-xs-12 red">
+                                <div ng-messages="myform.$error">
+                                    <div ng-message="required">*号为必填项，需填写后提交</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
-
         </div>
-    </div>
 
-</form>
+    </form>
 </div>

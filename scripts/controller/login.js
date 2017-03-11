@@ -21,17 +21,14 @@ function logIn($state,$http,$scope,$rootScope,$cookies,$timeout,  recordCookies)
 
         }).then(function (res) {
             if(res.data.code == 0){
+                vm.show = false;
                 $cookies.login = "true";
-                $state.go("field");
+                $state.go("field",{panelId:null});
                 recordCookies({managerID: res.data.data.manager.id, roleID: res.data.data.manager.roleID});
-                // managerService.saveSelfDetail(res.data.data);
             }
             else{
                 vm.errorTip = res.data.message;//res为传回的数据
-                alert(vm.errorTip);
-                $timeout(function () {
-                    vm.errorTip = "";
-                }, 3000);
+                vm.show = true;
             };
 
         });

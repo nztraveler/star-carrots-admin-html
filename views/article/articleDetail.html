@@ -30,8 +30,8 @@
             </div>
             <div class="row form-group">
                 <label class="col-md-2 control-label word-spacing-25"><span class="red">*</span>配 图</label>
-                <div class="col-md-10 padding-0">
-                    <div class="col-md-12 ">
+                <div class="col-md-10 padding-0 ">
+                    <div class="col-md-12 margin-10-b">
                         <label class="btn btn-primary" for="file2">选择文件</label>
                         <input id="file2"
                                style="display: none"
@@ -40,12 +40,12 @@
                                uploader="vm.uploader1"
                                required
                         />
-                        <span class="col-md-12 " ng-show="!vm.params.img" class="red">　请上传一张图片</span>
+                        <span class="red" ng-show="!vm.params.img">　请上传一张图片</span>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-12 margin-10-tb">
                         <img ng-src="{{vm.params.img}}" alt="配图预览" class="img-responsive">
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-12 margin-10-tb">
                         <div class="table-responsive  padding-0">
                             <table class="table">
                                 <thead>
@@ -110,9 +110,7 @@
                         </div>
                     </div>
                 </div>
-
             </div>
-
 
     </form>
         </div>

@@ -1,39 +1,144 @@
 
-<header class="bg-primary ">萝卜多后台管理系统</header>
-<!--左侧导航栏开始-->
-<div class="nav col-sm-2 col-xs-12">
-<nav class="panel-group list-group " id="accordion" role="tablist" aria-multiselectable="true">
-    <!--第一段折叠-->
-    <div class=" panel panel-default ">
-        <div class="panel-heading" role="tab" id="headingOne">
-            <h4 class="panel-title collapsed cursor-pointer" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
-                aria-expanded="true" aria-controls="collapseOne">
-                 信息管理
-            </h4>
-        </div>
-        <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-            <div class="list-group">
-                <a href="" class="list-group-item" ui-sref=".companyList" ui-sref-opts="{inherit: false}">公司信息</a>
-                <a href="" class="list-group-item" ui-sref=".positionList" ui-sref-opts="{inherit: false}">职位信息</a>
-            </div>
-        </div>
-    </div>
-    <!--第二段折叠-->
-    <div class=" panel panel-default ">
-        <div class="  panel-heading" role="tab" id="headingTwo">
-            <h4 class="panel-title collapsed cursor-pointer " role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"
-                aria-expanded="false" aria-controls="collapseTwo">
-                   内容管理
-            </h4>
-        </div>
-        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-            <div class=" list-group">
-                    <a href="" class="list-group-item"  ui-sref=".articleList" ui-sref-opts="{inherit: false}">Article管理</a>
-            </div>
-        </div>
-    </div>
-</nav>
+<div class="row">
+    <header class="bg-primary fs-18 ">萝卜多后台管理系统</header>
 </div>
+<!--左侧导航栏开始-->
+<div class="row">
+    <div class="nav col-sm-2 col-xs-12">
+        <!-- ptteng-sidebar -->
+        <!--<sidebar></sidebar>-->
+        <!--<a ui-sref="field.homepage" class="nav-header"><i class="icon-briefcase"></i>欢迎页</a>-->
+        <!--<div>-->
+            <!--<a class="nav-header" ng-click="vm.msgCollapsed = !vm.msgCollapsed"><i class="icon-dashboard"></i>信息管理<i-->
+                    <!--class="icon-chevron-down pull-right"></i></a>-->
+            <!--<ul class="nav nav-list text-center" ui-sref-active="in" uib-collapse="msgCollapsed">-->
+                <!--<li ui-sref-active="active" ><a-->
+                        <!--ui-sref='.companyList'>公司信息</a></li>-->
+                <!--<li ui-sref-active="active" ><a-->
+                        <!--ui-sref='.positionList'>职位信息</a></li>-->
+            <!--</ul>-->
+        <!--</div>-->
+
+        <!--<div>-->
+            <!--<a class="nav-header" ng-click="vm.msgCollapsed = !vm.msgCollapsed"><i class="icon-dashboard"></i>内容管理<i-->
+                    <!--class="icon-chevron-down pull-right"></i></a>-->
+            <!--<ul class="nav nav-list text-center" ui-sref-active="in" uib-collapse="msgCollapsed">-->
+                <!--<li ui-sref-active="active" ><a-->
+                        <!--ui-sref='.articleList'>Article管理</a></li>-->
+            <!--</ul>-->
+        <!--</div>-->
+
+        <!--<nav class="panel-group list-group " id="accordion" role="tablist" aria-multiselectable="true">-->
+            <!--&lt;!&ndash;第一段折叠&ndash;&gt;-->
+            <!--<div class=" panel panel-default ">-->
+                <!--<div class="panel-heading" role="tab" id="headingOne">-->
+                    <!--<h4 class="panel-title collapsed cursor-pointer" role="button" data-toggle="collapse"-->
+                        <!--data-parent="#accordion" href="#collapseOne"-->
+                        <!--aria-expanded="true" aria-controls="collapseOne">-->
+                        <!--信息管理-->
+                    <!--</h4>-->
+                <!--</div>-->
+                <!--<div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">-->
+                    <!--<ul  class="list-group" ui-sref-active="in" >-->
+                        <!--<li ui-sref-active="active" ng-class="{active: currentState.includes('field.companyList')}">-->
+                            <!--<a href="" class="list-group-item" ui-sref=".companyList"-->
+                               <!--ui-sref-opts="{inherit: false}">公司信息</a>-->
+                        <!--</li>-->
+
+                        <!--<li ui-sref-active="active">-->
+                            <!--<a href="" class="list-group-item" ui-sref=".positionList"-->
+                               <!--ui-sref-opts="{inherit: false}">职位信息</a>-->
+                        <!--</li>-->
+
+                    <!--</ul>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--&lt;!&ndash;第二段折叠&ndash;&gt;-->
+            <!--<div class=" panel panel-default ">-->
+                <!--<div class="  panel-heading" role="tab" id="headingTwo">-->
+                    <!--<h4 class="panel-title collapsed cursor-pointer " role="button" data-toggle="collapse"-->
+                        <!--data-parent="#accordion" href="#collapseTwo"-->
+                        <!--aria-expanded="false" aria-controls="collapseTwo">-->
+                        <!--内容管理-->
+                    <!--</h4>-->
+                <!--</div>-->
+                <!--<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">-->
+                    <!--<ul class=" list-group" ui-sref-active="in">-->
+                        <!--<li ui-sref-active="active">-->
+                            <!--<a href="" class="list-group-item" ui-sref=".articleList" ui-sref-opts="{inherit: false}">Article管理</a>-->
+                        <!--</li>-->
+
+                    <!--</ul>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</nav>-->
+
+        <div class="list-group">
+            <a href="#" class="list-group-item border-radius-none active border-color">
+                <h4 class="list-group-item-heading">
+                    信息管理
+                </h4>
+            </a>
+            <a href="#" ng-class="{active: vm.panel(1) }" ng-click="vm.stateGo(1)" class="list-group-item border-radius-none border-color">
+                <p class="list-group-item-text">
+                    公司信息
+                </p>
+            </a>
+            <a href="#" ng-class="{active: vm.panel(2) }" ng-click="vm.stateGo(2)"class="list-group-item border-radius-none border-color">
+                <p class="list-group-item-text">职位信息</p>
+            </a>
+        </div>
+
+        <div class="list-group">
+            <a href="#" class="list-group-item border-radius-none active border-color">
+                <h4 class="list-group-item-heading">
+                    内容管理
+                </h4>
+            </a>
+            <a href="#" ng-class="{active: vm.panel(3) }" ng-click="vm.stateGo(3)" class="list-group-item border-radius-none border-color">
+                <p class="list-group-item-text">
+                    Article管理
+                </p>
+            </a>
+
+        </div>
 
 
-<div ui-view class="col-sm-10 col-xs-12"> </div>
+        <!--<nav class="panel-group list-group " id="accordion" role="tablist" aria-multiselectable="true">-->
+            <!--&lt;!&ndash;第一段折叠&ndash;&gt;-->
+            <!--<div class=" panel panel-default ">-->
+                <!--<div class="panel-heading" role="tab" id="headingOne">-->
+                    <!--<h4 class="panel-title collapsed cursor-pointer" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"-->
+                        <!--aria-expanded="true" aria-controls="collapseOne">-->
+                        <!--信息管理-->
+                    <!--</h4>-->
+                <!--</div>-->
+                <!--<div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">-->
+                    <!--<div class="list-group">-->
+                        <!--<a href="" class="list-group-item "  ng-class="{active: vm.panel(1) }" ng-click="vm.stateGo(1)" >公司信息</a>-->
+                        <!--<a href="" class="list-group-item"  ng-class="{active : vm.panel(2)}" ng-click="vm.stateGo(2)">职位信息</a>-->
+                        <!--&lt;!&ndash;ui-sref-opts="{inherit: false}"&ndash;&gt;-->
+
+                        <!--&lt;!&ndash;ui-sref-opts="{inherit: false}"&ndash;&gt;-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--&lt;!&ndash;第二段折叠&ndash;&gt;-->
+            <!--<div class=" panel panel-default ">-->
+                <!--<div class="  panel-heading" role="tab" id="headingTwo">-->
+                    <!--<h4 class="panel-title collapsed cursor-pointer " role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"-->
+                        <!--aria-expanded="false" aria-controls="collapseTwo">-->
+                        <!--内容管理-->
+                    <!--</h4>-->
+                <!--</div>-->
+                <!--<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">-->
+                    <!--<div class=" list-group">-->
+                        <!--<a href="" class="list-group-item"  ng-class="{active : vm.panel(3)} " ng-click="vm.stateGo(3)">Article管理</a>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</nav>-->
+
+    </div>
+    <div ui-view class="col-sm-10 col-xs-12 page-wrapper"></div>
+</div>

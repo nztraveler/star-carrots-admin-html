@@ -128,10 +128,10 @@ angular.module('admin')
         templateUrl: 'views/template/bsPicker.html',
         replace: 'true',
         link: function ($scope){
-            $scope.today = new Date();
+
             $scope.startMax = new Date();
             $scope.$watch('vm.articleSearch.endAt',function (newDate) {
-                if (newDate==null||newDate==undefined||newDate==''){
+                if (newDate==null||newDate==undefined||newDate ==''){
                     $scope.startMax = new Date();
                 }else {
                     $scope.startMax =newDate ;

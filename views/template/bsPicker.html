@@ -1,14 +1,22 @@
-<div class="date-wrap">
-    <p class="input-group date-p">
-        <input type="text" class="form-control date-input" size="14" bs-datepicker autoclose="true"
-               data-date-format="yyyy-MM-dd" data-date-type="number"
-               data-max-date="{{startMax}}"
-               ng-model="vm.articleSearch.startAt"/>
-    </p>
+<div class="date-wrap row">
+<div class="col-md-4">
+    <input type="text" class="form-control date-input" size="20" bs-datepicker autoclose="true"
+           data-date-format="yyyy-MM-dd" data-date-type="number"
+           data-max-date="{{startMax}}"
+           ng-model="vm.articleSearch.startAt"/>
+</div>
+
+<div class="col-md-1 text-center">
     <span class="date-span">-</span>
-    <p class="input-group date-p">
-        <input type="text" class="form-control date-input" size="14" bs-datepicker autoclose="true"
-               data-date-format="yyyy-MM-dd" data-date-type="number"
-               ng-model="vm.articleSearch.endAt" data-min-date="{{vm.articleSearch.startAt}}" data-max-date="{{today}}"/>
-    </p>
+</div>
+
+<div class="col-md-4">
+    <input type="text" class="form-control date-input" size="20" bs-datepicker autoclose="true"
+           data-date-format="yyyy-MM-dd" data-date-type="number"
+           ng-model="vm.articleSearch.endAt" data-min-date="{{vm.articleSearch.startAt}}" data-max-date="today"/>
+
+
+</div>
+
+
 </div>

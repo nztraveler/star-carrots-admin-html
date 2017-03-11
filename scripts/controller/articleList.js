@@ -36,6 +36,11 @@ function articleSearch(articleConstant,$http,$scope,$rootScope,$state,$statePara
             if(res.code == 0){
                 vm.list=res.data.articleList;
                 vm.num = res.data.total;
+                if(vm.num==0){
+                    vm.show = true;
+                }else {
+                    vm.show = false;
+                };
                 // 分页配置
                 vm.maxSize = 5;// 下方分页处最多显示5个分页序号
                 vm.maxPerPage = 10;//每页数量
@@ -64,10 +69,12 @@ function articleSearch(articleConstant,$http,$scope,$rootScope,$state,$statePara
     }
     //搜索功能，url传参
     vm.search = function () {
-
-        if(vm.articleSearch.endAt !== undefined && vm.articleSearch.endAt !== null&&vm.articleSearch.endAt !== ''){
-            vm.articleSearch.endAt=vm.articleSearch.endAt+86399999;//给结束时间加一个时间戳，定位到每天的23.59.59
-        };
+        console.log(vm.articleSearch.endAt);
+        commonUtil.querySearchParams(vm.articleSearch);
+        console.log(vm.articleSearch);
+        // if(vm.articleSearch.endAt !== undefined && vm.articleSearch.endAt !== null&&vm.articleSearch.endAt !== ''){
+        //     vm.articleSearch.endAt=vm.articleSearch.endAt+86399999;//给结束时间加一个时间戳，定位到每天的23.59.59
+        // };
         vm.articleSearch.page =1;
 
         $state.go('.', vm.articleSearch);//以新url参数刷新页面

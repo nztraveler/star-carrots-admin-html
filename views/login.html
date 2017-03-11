@@ -2,16 +2,23 @@
     <div class="panel-heading blue">萝卜多后台登录</div>
     <div class="panel-body">
         <form name="myform">
-            <label class="input-group margin-10px-auto" >
+            <label class="input-group margin-10px-auto">
                 <!--fa-fw可固定图标宽度-->
                 <i class="fa fa-user fa-fw blue-color margin-10" aria-hidden="true"></i>
-                <input type="text" placeholder="用户名" ng-model="vm.name" required>
+                <input name="name" type="text" placeholder="用户名" ng-model="vm.name" required>
             </label>
             <label class="input-group margin-10px-auto">
                 <i class="fa fa-key fa-fw blue-color margin-10" aria-hidden="true"></i>
-                <input type="password" placeholder="密码" ng-model="vm.pwd" required>
+                <input name="pwd" type="password" placeholder="密码" ng-model="vm.pwd" required>
             </label>
-            <button type="submit" class="btn btn-primary" ng-disabled="!myform.$valid" ng-click="vm.submit()"> 登录</button>
+            <button type="submit" class="btn btn-primary" ng-disabled="!myform.$valid" ng-click="vm.submit()"> 登录
+            </button>
+            <div class="red" ng-show="vm.show">
+                {{vm.errorTip}}
+            </div>
+            <!--<div ng-messages="myform.pwd.$error">-->
+            <!--<div ng-message="required">请填写密码</div>-->
+            <!--</div>-->
         </form>
     </div>
 </div>

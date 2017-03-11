@@ -7,7 +7,7 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label">在招公司</label>
                             <div class="col-md-8">
-                                <input type="text"  ng-model="vm.searchParams.companyName">
+                                <input class="form-control" type="text"  ng-model="vm.searchParams.companyName">
                             </div>
                         </div>
                     </div>
@@ -15,7 +15,7 @@
                         <div class="form-group">
                             <label class="control-label col-md-4">职位名称</label>
                             <div class="col-md-8">
-                                <input type="text"  ng-model="vm.searchParams.name">
+                                <input class="form-control" type="text"  ng-model="vm.searchParams.name">
                             </div>
                         </div>
                     </div>
@@ -23,7 +23,7 @@
                         <div class="form-group">
                             <label class="control-label col-md-4">工作经验</label>
                             <div class="col-md-8">
-                                <select ng-model="vm.searchParams.experience">
+                                <select class="form-control" ng-model="vm.searchParams.experience">
                                     <option value=""> 全部 </option>
                                     <option ng-repeat="x in vm.ProfessionConstant.experience" ng-value="x.type" ng-selected="x.type == vm.searchParams.experience">{{x.name}}</option>
                                 </select>
@@ -36,7 +36,7 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label">学历要求</label>
                             <div class="col-md-8">
-                                <select ng-model="vm.searchParams.education">
+                                <select class="form-control" ng-model="vm.searchParams.education">
                                     <option value=""> 全部 </option>
                                     <option ng-repeat="x in vm.ProfessionConstant.education" ng-value="x.type" ng-selected="x.type == vm.searchParams.education">{{x.name}}</option>
                                 </select>
@@ -47,7 +47,7 @@
                         <div class="form-group">
                             <label class="control-label col-md-4">薪资</label>
                             <div class="col-md-8">
-                                <select ng-model="vm.searchParams.compensation">
+                                <select class="form-control" ng-model="vm.searchParams.compensation">
                                     <option value=""> 全部 </option>
                                     <option ng-repeat="x in vm.ProfessionConstant.compensation" ng-value="x.type" ng-selected="x.type == vm.searchParams.compensation">{{x.name}}</option>
                                 </select>
@@ -57,8 +57,8 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label class="control-label col-md-4">状态</label>
-                            <div class="col-md-8">
-                                <select ng-model="vm.searchParams.status">
+                            <div class="col-md-8" >
+                                <select class="form-control" ng-model="vm.searchParams.status">
                                     <option value="">全部</option>
                                     <option value="1">上架</option>
                                     <option value="0">下架</option>
@@ -68,22 +68,26 @@
                     </div>
                 </div>
                 <div class="row pd-bottom-2">
-                    <div class="col-md-10">
+                    <div class="col-md-12">
                         <div class="form-group">
-                            <label class="control-label col-md-2">创建时间</label>
+                            <div class="col-my-1 ">
+                                <label class="control-label control-label">创建时间</label>
+                            </div>
                             <div class="col-md-10">
-                                <bs-picker></bs-picker>
+                                 <bs-picker></bs-picker>
                             </div>
                         </div>
                     </div>
-
                 </div>
+
                 <div class="row pd-bottom-2">
-                    <div class="col-md-10">
+                    <div class="col-md-12">
                         <div class="form-group">
-                            <label class="control-label col-md-2">职业类别</label>
+                            <div class="col-my-1 ">
+                                <label class="control-label control-label">职业类别</label>
+                            </div>
                             <div class="col-md-10">
-                                  <span class="vertical-middle">
+                                 <span class="vertical-middle">
                     <select class="form-control" ng-model="vm.searchParams.category"
                             ng-change="vm.subCategoryFn(vm.searchParams.category)" required>
                         <option value="">请选择</option>
@@ -92,7 +96,7 @@
                             {{item.name}}
                         </option>
                     </select>
-                                      <!--<input type="text" ng-model="vm.searchParams.category">-->
+                                     <!--<input type="text" ng-model="vm.searchParams.category">-->
                 </span>
                                 <label class="control-label vertical-middle">—</label>
                                 <span class="vertical-middle">
@@ -108,8 +112,8 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
+
                 <div class="row">
                     <div class="col-md-12 text-right ">
                         <button ng-click="vm.clear()" type="button" class="btn btn-warning">清空</button>
@@ -126,9 +130,10 @@
     <!--表格开始-->
     <div class="panel panel-default" >
         <div class="panel-heading">
-            <div ng-if="vm.searchParams.companyId"  >
+            <div>
                 <strong>职位信息</strong>
-                <button class="pull-right btn btn-primary btn-xs" ui-sref="field.positionDetail({companyId:vm.searchParams.companyId,companyName:vm.searchParams.companyName,n:false})" type="button" class="btn btn-primary">新增</button>
+                <span class="red" ng-show="vm.show">&nbsp&nbsp sorry，暂无此数据</span>
+                <button class="pull-right btn btn-primary btn-xs" type="button" ui-sref="field.positionDetail({companyId:vm.searchParams.companyId,companyName:vm.searchParams.companyName,n:false})"  ng-if="vm.searchParams.companyId">新增</button>
             </div>
         </div>
 
